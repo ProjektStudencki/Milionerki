@@ -8,15 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.milionerki.StartActivity" >
 
-    <Button
-        android:id="@+id/startGame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="158dp"
-        android:text="@string/btn_game_start" />
-
     <TextView
         android:id="@+id/rankingView"
         android:layout_width="wrap_content"
@@ -36,5 +27,21 @@
         android:layout_marginTop="25dp"
         android:text="@string/btn_game_info"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/startGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/rankingView"
+        android:layout_below="@+id/imageView1"
+        android:text="@string/btn_game_start" />
 
 </RelativeLayout>

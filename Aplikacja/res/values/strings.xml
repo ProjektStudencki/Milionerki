@@ -13,12 +13,13 @@
     <!-- O MNIE -->
     <string name="title_system_rozgrywki">System rozgrywki</string>
     <string name="text_system_rozgrywki">
-        Gra Milionerki opiera się na kulturowej grze "Milionerzy".\n
-        Jej głównym założeniem jest:\n
-        \t* odpowiadanie na zadawane przez prowadzącego pytania\n
+        Gra Milionerki opiera się na większości zasad popularnego teleturnieju "Milionerzy".\n
+		Założenia gry są bardzo proste. Aby zdobyć tytułową nagrodę miliona należy odpowiedzieć na 15 zadanych pytań przez prowadzącego. 
+		Istnieją dwa progi gwarantowane - pierwszy z nich po 5. pytaniu (1 000) oraz drugi z nich po 10. pytaniu (32 000). 
+		Do wykorzystania są trzy koła ratunkowe: pytanie do publiczności, telefon do wirtualnego przyjaciela oraz pół na pół.
     </string>
-    <string name="title_wersja">Werjsa</string>
-    <string name="text_wersja">Milionerki ver 0.05</string>
+    <string name="title_wersja">Wersja</string>
+    <string name="text_wersja">Milionerki ver 0.01</string>
     <string name="title_autorzy">Autorzy</string>
     <string name="text_autorzy">Damian Gracyzk, Kamil Gammert, Konrad Barbasiewicz, Andrzej Pietrzak, Leszek Sierocki</string>
     
