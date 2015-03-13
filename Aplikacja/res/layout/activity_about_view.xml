@@ -16,6 +16,13 @@
 	        android:paddingLeft="15dp"
     		android:paddingRight="15dp" 
     		android:paddingBottom="15dp">
+		    
+	        <ImageView
+	            android:id="@+id/imageView1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="100dp"
+	            android:layout_marginTop="10dp"
+	            android:src="@drawable/logo" />
 	        
 			<RelativeLayout
 			    android:layout_width="match_parent"

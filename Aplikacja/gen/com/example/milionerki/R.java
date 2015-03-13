@@ -11,6 +11,7 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int boxShow=0x7f070002;
         public static final int fff=0x7f070001;
         public static final int title=0x7f070000;
     }
@@ -28,19 +29,21 @@ public final class R {
     public static final class drawable {
         public static final int box=0x7f020000;
         public static final int ic_launcher=0x7f020001;
+        public static final int logo=0x7f020002;
     }
     public static final class id {
-        public static final int aboutMeView=0x7f090009;
-        public static final int action_settings=0x7f09000a;
+        public static final int aboutMeView=0x7f09000a;
+        public static final int action_settings=0x7f09000b;
+        public static final int imageView1=0x7f090001;
         public static final int rankingView=0x7f090008;
         public static final int scrollView1=0x7f090000;
-        public static final int startGame=0x7f090007;
-        public static final int textView1=0x7f090001;
-        public static final int textView2=0x7f090002;
-        public static final int textView3=0x7f090003;
-        public static final int textView4=0x7f090004;
-        public static final int textView5=0x7f090005;
-        public static final int textView6=0x7f090006;
+        public static final int startGame=0x7f090009;
+        public static final int textView1=0x7f090002;
+        public static final int textView2=0x7f090003;
+        public static final int textView3=0x7f090004;
+        public static final int textView4=0x7f090005;
+        public static final int textView5=0x7f090006;
+        public static final int textView6=0x7f090007;
     }
     public static final class layout {
         public static final int activity_about_view=0x7f030000;
