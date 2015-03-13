@@ -13,6 +13,7 @@ public final class R {
     public static final class color {
         public static final int boxShow=0x7f070002;
         public static final int fff=0x7f070001;
+        public static final int text=0x7f070003;
         public static final int title=0x7f070000;
     }
     public static final class dimen {

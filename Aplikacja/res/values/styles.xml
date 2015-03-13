@@ -19,6 +19,7 @@
 
     <color name="title">#ccf00c</color>
     <color name="fff">#ffffff</color>
-    <color name="boxShow">#8aacd8</color>
+    <color name="boxShow">#111130</color>
+    <color name="text">#8aacd8</color>
     
 </resources>
