@@ -1,0 +1,128 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context="com.example.milionerki.StartActivity" >
+
+    <ScrollView
+	    android:id="@+id/scrollView1"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
+	    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical" 
+	        android:paddingLeft="15dp"
+    		android:paddingRight="15dp" 
+    		android:paddingBottom="15dp">
+		    
+	        <ImageView
+	            android:id="@+id/imageView1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="100dp"
+	            android:layout_marginTop="10dp"
+	            android:src="@drawable/logo" />
+	        
+			<RelativeLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:layout_marginTop="10dp"
+			    android:background="@drawable/box"
+			    android:paddingBottom="15dp"
+			    android:paddingLeft="15dp"
+			    android:paddingRight="15dp"
+			    android:paddingTop="15dp" >
+
+				<TextView
+				    android:id="@+id/textView1"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentTop="true"
+				    android:layout_centerHorizontal="true"
+				    android:text="@string/title_system_rozgrywki"
+				    android:textColor="@color/fff"
+				    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+				<TextView
+				    android:id="@+id/textView2"
+				    android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:layout_alignParentRight="true"
+				    android:layout_below="@+id/textView1"
+				    android:paddingTop="5dp"
+				    android:text="@string/text_system_rozgrywki"
+				    android:textColor="@color/fff" />
+			
+			</RelativeLayout>			
+			
+			<RelativeLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:layout_marginTop="15dp"
+			    android:background="@drawable/box"
+			    android:paddingBottom="15dp"
+			    android:paddingLeft="15dp"
+			    android:paddingRight="15dp"
+			    android:paddingTop="15dp" >
+
+				<TextView
+				    android:id="@+id/textView3"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentTop="true"
+				    android:layout_centerHorizontal="true"
+				    android:text="@string/title_wersja"
+				    android:textAppearance="?android:attr/textAppearanceMedium"
+				    android:textColor="@color/fff" />
+
+				<TextView
+				    android:id="@+id/textView4"
+				    android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:layout_alignParentRight="true"
+				    android:layout_below="@+id/textView3"
+				    android:paddingTop="5dp"
+				    android:text="@string/text_wersja"
+				    android:textColor="@color/fff" />
+			
+			</RelativeLayout>
+			
+			<RelativeLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:layout_marginTop="15dp"
+			    android:background="@drawable/box"
+			    android:paddingBottom="15dp"
+			    android:paddingLeft="15dp"
+			    android:paddingRight="15dp"
+			    android:paddingTop="15dp" >
+
+				<TextView
+				    android:id="@+id/textView5"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentTop="true"
+				    android:layout_centerHorizontal="true"
+				    android:text="@string/title_autorzy"
+				    android:textAppearance="?android:attr/textAppearanceMedium"
+				    android:textColor="@color/fff" />
+
+				<TextView
+				    android:id="@+id/textView6"
+				    android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+				    android:layout_alignParentRight="true"
+				    android:layout_below="@+id/textView5"
+				    android:paddingTop="5dp"
+				    android:text="@string/text_autorzy"
+				    android:textColor="@color/fff" />
+			
+			</RelativeLayout>
+	        
+	    </LinearLayout>
+	    
+	</ScrollView>
+
+</RelativeLayout><!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/layout/activity_about_view.xml -->
