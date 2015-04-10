@@ -23,5 +23,12 @@
     <color name="black">#ff000000</color>
     <color name="blue">#ff33acdb</color>
     <color name="bg">#ff232d48</color>
+
+    <color name="ranking1">#ffd700</color>
+    <color name="ranking2">#b8b8b8</color>
+    <color name="ranking3">#b26434</color>
+    <color name="rankin_num">#ffa200</color>
+
+    <color name="txt_gold">#e2cd1f</color>
     
 </resources>

@@ -14,7 +14,7 @@ public class sqlAdapter {
  
     private static final int DB_VERSION = 1;
 
-    private static final String DB_NAME = "milionerki.db";
+    private static final String DB_NAME = "milionerkiGame.db";
     public static final String DB_USERS_TABLE = "Gracze";
     public static final String DB_QUESTION_TABLE = "PytaniaiOdpowiedzi";
     public static final String DB_TEXTS_LED_TABLE = "TekstyProwadzacego";
@@ -26,6 +26,7 @@ public class sqlAdapter {
                 "Pseudonim            text not null, " +
                 "Imie_gracza          text, " +
                 "Nazwisko_gracza      text, " +
+                "Avatar               int not null," +
                 "primary key (Pseudonim)" +
             ");";
     private static final String DROP_USERS_TABLE =
@@ -33,34 +34,31 @@ public class sqlAdapter {
 
     private static final String DB_CREATE_QUESTION_TABLE =
             "CREATE TABLE " + DB_QUESTION_TABLE + "( " +
-                "Nr_Pytania           int not null AUTOINCREMENT, "+
+                "Nr_Pytania           INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 "Pytanie              text not null, " +
                 "Poprawna_odp         text not null, " +
                 "Zla_odp1             text not null, " +
                 "Zla_odp2             text not null, " +
                 "Zla_odp3             text not null, " +
-                "Poziom_trudnosci     Integer(2) not null, " +
-                "primary key (Nr_Pytania) " +
+                "Poziom_trudnosci     Integer(2) not null " +
             ");";
     private static final String DROP_QUESTION_TABLE =
             "DROP TABLE IF EXISTS " + DB_QUESTION_TABLE;
 
     private static final String DB_CREATE_TEXTS_LED_TABLE =
             "CREATE TABLE " + DB_TEXTS_LED_TABLE + "( " +
-                "ID_tekstu            Integer(3) not null AUTOINCREMENT, " +
+                "ID_tekstu            INTEGER(3) PRIMARY KEY, " +
                 "Tekst_prowadzacego   text not null, " +
-                "Prawdopodobiensto_wypadniecia Integer(3) not null, " +
-                "primary key (ID_tekstu)" +
+                "Prawdopodobiensto_wypadniecia Integer(3) not null " +
             ");";
     private static final String DROP_TEXTS_LED_TABLE =
             "DROP TABLE IF EXISTS " + DB_TEXTS_LED_TABLE;
 
     private static final String DB_CREATE_TEXTS_FRIEND_TABLE =
             "CREATE TABLE " + DB_TEXTS_FRIEND_TABLE + "( " +
-                "ID_tesktu            Integer(3) not null AUTOINCREMENT, " +
+                "ID_tesktu            INTEGER(3) PRIMARY KEY, " +
                 "Tekst_przyjaciela    text not null, " +
-                "Prawdopodobienstwo_wypadniecia Integer(3) not null, " +
-                "primary key (ID_tesktu)" +
+                "Prawdopodobienstwo_wypadniecia Integer(3) not null "+
             ");";
     private static final String DROP_TEXTS_FRIEND_TABLE =
             "DROP TABLE IF EXISTS " + DB_TEXTS_FRIEND_TABLE;
@@ -83,8 +81,7 @@ public class sqlAdapter {
     private DatabaseHelper dbHelper;
  
     private static class DatabaseHelper extends SQLiteOpenHelper {
-        public DatabaseHelper(Context context, String name,
-                CursorFactory factory, int version) {
+        public DatabaseHelper(Context context, String name, CursorFactory factory, int version) {
             super(context, name, factory, version);
         }
  
@@ -125,6 +122,7 @@ public class sqlAdapter {
         try {
             db = dbHelper.getWritableDatabase();
         } catch (SQLException e) {
+            Log.i("info", e.getMessage());
             db = dbHelper.getReadableDatabase();
         }
         return this;

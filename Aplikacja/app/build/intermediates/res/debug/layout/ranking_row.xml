@@ -29,8 +29,11 @@
                 android:id="@+id/rankingText"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
+                android:layout_marginRight="20dp"
                 android:gravity="center"
                 android:textColor="@color/fff" />
+
+
         </RelativeLayout>
 
         <ImageView
@@ -50,5 +53,19 @@
             android:layout_alignTop="@+id/avatar"
             android:layout_toLeftOf="@+id/avatar"
             android:layout_marginRight="10dp" />
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_height="60dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text=""
+            android:id="@+id/numRanking"
+            android:layout_marginLeft="-30dp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/rankin_num"
+            android:layout_toRightOf="@+id/relativeLayout"
+            android:textSize="22dp" />
+
     </RelativeLayout>
 </LinearLayout><!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/layout/ranking_row.xml -->

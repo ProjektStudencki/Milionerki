@@ -3,14 +3,19 @@ package com.game.menu;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.game.milionerki.R;
+
+import org.w3c.dom.Text;
 
 import menu.ObjectDrawerItem;
 
@@ -38,8 +43,26 @@ import menu.ObjectDrawerItem;
 		listItem = inflater.inflate(folder.idLayout, parent, false);
 
         if (folder.action == "rankingView") {
+            RelativeLayout _lay = (RelativeLayout) listItem.findViewById(R.id.relativeLayout);
+            ImageView _img = (ImageView) listItem.findViewById(R.id.imageView2);
+            TextView _lp = (TextView) listItem.findViewById(R.id.numRanking);
             TextView _rankingText = (TextView) listItem.findViewById(R.id.rankingText);
             ImageView _avatar = (ImageView) listItem.findViewById(R.id.avatar);
+
+            if (folder.lp == 1) {
+                _lay.setBackgroundResource(R.color.ranking1);
+                _img.setImageResource(R.drawable.obr_1);
+                _lp.setText(Html.fromHtml("<b>1</b>"));
+                _rankingText.setTextColor(Color.BLACK);
+            } else if (folder.lp == 2) {
+                _lay.setBackgroundResource(R.color.ranking2);
+                _img.setImageResource(R.drawable.obr_2);
+                _lp.setText(Html.fromHtml("<b>2</b>"));
+            } else if (folder.lp == 3) {
+                _lay.setBackgroundResource(R.color.ranking3);
+                _img.setImageResource(R.drawable.obr_3);
+                _lp.setText(Html.fromHtml("<b>3</b>"));
+            }
 
             _rankingText.setText(folder.nick + " " + folder.name);
             if(folder.avatar.equals("1"))

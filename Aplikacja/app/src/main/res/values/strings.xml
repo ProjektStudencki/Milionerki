@@ -26,5 +26,24 @@
     <string name="text_wersja">Milionerki ver 0.01</string>
     <string name="title_autorzy">Autorzy</string>
     <string name="text_autorzy">Damian Graczyk, Kamil Gammert, Konrad Barbasiewicz, Andrzej Pietrzak, Leszek Sierocki</string>
-    
+
+    <!-- PROFIL -->
+    <string name="choose_avek">Wybór avataru</string>
+    <string name="create_profil">Tworzenie profilu</string>
+    <string name="create_profil_name">Imię</string>
+    <string name="create_profil_srunname">Nazwisko</string>
+    <string name="create_profil_nick">Pseudonim</string>
+
+    <string name="back">Powrót do menu</string>
+    <string name="next">Dalej</string>
+    <string name="createBtn">Załóż</string>
+
+    <string name="error_create">Konto o takim nicku już istnieje. Wybierz inny!</string>
+    <string name="success_create_profil">Założonto konto!</string>
+
+    <string-array name="array_avek">
+        <item>@drawable/awatar_k1</item>
+        <item>@drawable/awatar_k2</item>
+    </string-array>
+
 </resources>

@@ -46,7 +46,7 @@ import menu.ObjectDrawerItem;
                 String result = data.getString(1);
                 String avatar = "";
 
-                rankingObject[i] = new ObjectDrawerItem("rankingView", R.layout.ranking_row, name, result, avatar);
+                rankingObject[i] = new ObjectDrawerItem("rankingView", R.layout.ranking_row, name, result, avatar, (i + 1));
                 i++;
             }
 
