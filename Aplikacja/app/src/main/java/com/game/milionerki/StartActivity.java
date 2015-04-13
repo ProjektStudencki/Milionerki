@@ -10,12 +10,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * Klasa odpowiedzialna za tworzenie widoku głównego gry
+ * @author Kamil Gammert
+ * Class <code>StartActivity</code>
+   @version 1.0, Marzec,Kwiecien 2015
+ */
 @SuppressWarnings("unused") public class StartActivity extends Activity {
 
 	private TextView _startGame;
 	private TextView _rankingView;
 	private TextView _aboutView;
-	
+
+    /**
+     * Funkcja tworząca widok, generowana domyślnie
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +57,24 @@ import android.widget.TextView;
     }
 
 
+    /**
+     * Funkcja odpowiedzialna za tworzenie w menu przycisku fizycznego
+     *
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.start, menu);
         return true;
     }
 
+    /**
+     * Funkcja odpowiedzialna za wykonywanie akcji z menu
+     *
+     * @param item wybrana opcja menu
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

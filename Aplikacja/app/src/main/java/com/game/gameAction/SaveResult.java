@@ -11,15 +11,36 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
-@SuppressWarnings("unused") public class SaveResult {
+/**
+ * Klasa odpowiedzialna za zapisywanie wyników rankingowych
+ *
+ * @author Kamil Gammert
+ * Class <code>SaveResult</code>
+   @version 1.0, Marzec,Kwiecien 2015
+ */
+
+public class SaveResult {
 
 	private sqlAdapter sqlAdapter;
-	
+
+    /**
+     * Funcja do wyświetlania okna dialogowego zapisu
+     * Na dzień dzisiejszy nie została zaimplementowana
+     *
+     * @param data
+     * @return 
+     */
 	public Dialog saveDialog(Map<String, String> data) {
 		return null;
-		
 	}
-	
+
+    /**
+     * Funkcja realizuje zapis uzyskanego wyniku do bazy SQLite
+	 *
+     * @param context Kontekst
+     * @param nick nick Nazwa gracza, który uzyskał wynik
+     * @param result Uzyskany wynik w grze
+     */
 	public void saveReuslt(Context context, String nick, int result) {
 		sqlAdapter = new sqlAdapter(context);
         sqlAdapter.open();

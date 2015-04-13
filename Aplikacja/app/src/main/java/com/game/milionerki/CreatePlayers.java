@@ -16,11 +16,22 @@ import android.widget.Toast;
 
 import com.game.sql.sqlAdapter;
 
+/**
+ * Klasa odpowiedzialna za generowanie widoku tworzenia profilu
+ * @author Kamil Gammert
+ * Class <code>CreatePlayers</code>
+   @version 1.0, Marzec,Kwiecien 2015
+ */
 public class CreatePlayers extends Activity {
 
     private int selectedAvatar = 0;
     private com.game.sql.sqlAdapter sqlAdapter;
 
+    /**
+     * Funkcja tworząca widok, generowana domyślnie
+     *
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_players_profil);
@@ -33,6 +44,9 @@ public class CreatePlayers extends Activity {
             selectedAvatar = intents.getIntExtra("avek", 0);
         }
 
+        /**
+         * Nasłuch pozwajający wrócić do menu głównego
+         */
         _backBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
@@ -42,6 +56,9 @@ public class CreatePlayers extends Activity {
         });
 
 
+        /**
+         * Nasluch, który reaguje na kliknięcie hiperlinka
+         */
         _createBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //zakładanie
@@ -93,12 +110,24 @@ public class CreatePlayers extends Activity {
         });
     }
 
+    /**
+     * Funkcja odpowiedzialna za tworzenie w menu przycisku fizycznego
+     *
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.start, menu);
         return true;
     }
 
+    /**
+     * Funkcja odpowiedzialna za wykonywanie akcji z menu
+     *
+     * @param item wybrana opcja menu
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

@@ -19,12 +19,26 @@ import org.w3c.dom.Text;
 
 import menu.ObjectDrawerItem;
 
+/**
+ * Klasa odpowiedzialna za tworzenie widoków
+ *
+ * @author Kamil Gammert
+ * Class <code>DrawerItemCustomAdapter</code>
+   @version 1.0, Marzec,Kwiecien 2015
+ */
 @SuppressLint("ViewHolder") public class DrawerItemCustomAdapter extends ArrayAdapter<ObjectDrawerItem> {
 
 	Context mContext;
 	int layoutResourceId;
 	ObjectDrawerItem data[] = null;
-	
+
+    /**
+     * Konstruktor klasy
+     *
+     * @param mContext kontekst
+     * @param layoutResourceId Numer identyfikacyjny layoutu
+     * @param data Dane, które zostają przekazane do klasy
+     */
 	public DrawerItemCustomAdapter(Context mContext, int layoutResourceId, ObjectDrawerItem[] data) {
 
 		super(mContext, layoutResourceId, data);
@@ -33,6 +47,14 @@ import menu.ObjectDrawerItem;
 		this.data = data;
 	}
 
+    /**
+     * Funkcja tworząca widok
+     *
+     * @param position aktualna pozycja w tablicy danych
+     * @param convertView widok, w którym wprowadzane są dane
+     * @param parent grupa widoku
+     * @return zostaje zwrócony widok
+     */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		

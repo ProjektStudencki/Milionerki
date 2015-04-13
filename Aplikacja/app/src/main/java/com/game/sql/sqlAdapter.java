@@ -8,7 +8,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
- 
+
+/**
+ * Klasa odpowiedzialna za połączenie z bazą danych
+ *
+ * @author Kamil Gammert
+ * Class <code>sqlAdapter</code>
+   @version 1.0, Marzec,Kwiecien 2015
+ */
 public class sqlAdapter {
     private static final String DEBUG_TAG = "Baza danych";
  
@@ -79,12 +86,21 @@ public class sqlAdapter {
     private SQLiteDatabase db;
     private Context context;
     private DatabaseHelper dbHelper;
- 
+
+    /**
+     * Klasa odpowiedzialna za tworzenie i aktualizację bazy danych
+     * @author Kamil Gammert
+     * @version v0.8 2015r.
+     */
     private static class DatabaseHelper extends SQLiteOpenHelper {
         public DatabaseHelper(Context context, String name, CursorFactory factory, int version) {
             super(context, name, factory, version);
         }
- 
+
+
+        /**
+         * Funkcja odpowiedzialna za tworzenie bazy danych
+         */
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(DB_CREATE_USERS_TABLE);
@@ -96,7 +112,10 @@ public class sqlAdapter {
             Log.d(DEBUG_TAG, "Database creating...");
             Log.d(DEBUG_TAG, "Table ver." + DB_VERSION + " created");
         }
- 
+
+        /**
+         * Funkcja odpowiedzialna za aktualizację bazy danych
+         */
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL(DROP_USERS_TABLE);
@@ -112,11 +131,19 @@ public class sqlAdapter {
             onCreate(db);
         }
     }
- 
+
+    /**
+     * Konstruktor klasy
+     * @param context kontekts
+     */
     public sqlAdapter(Context context) {
         this.context = context;
     }
- 
+
+    /**
+     * Funkcja odpowiedzialna za otworzenie połączenia z bazą daych
+     * @return
+     */
     public sqlAdapter open(){
         dbHelper = new DatabaseHelper(context, DB_NAME, null, DB_VERSION);
         try {
@@ -127,28 +154,61 @@ public class sqlAdapter {
         }
         return this;
     }
- 
+
+    /**
+     * Funkcja odpowiedzialna za zamknięcie połączenia z bazą danych
+     */
     public void close() {
         dbHelper.close();
     }
- 
+
+    /**
+     * Funkcja odpowiedzialna za wykonanie zapytania sql
+     * @param sql zapytanie sql
+     */
     public void sql(String sql) {
     	db.execSQL(sql);
     }
-     
+
+    /**
+     * Funkcja odpowiedzialna za usuwanie danego wiersza w danej tabeli db
+     * @param id klucz podstawowy wiersza usuwanego
+     * @param table nazwa tabeli
+     * @param key_id nazwa kolumny klucza podstawowego
+     * @return true/false
+     */
     public boolean deleteTodo(int id, String table, String key_id){
         String where = key_id + "=" + id;
         return db.delete(table, where, null) > 0;
     }
- 
+
+    /**
+     * Funkcja odpowiedzialna za pobranie wartości z danych kolumn tabeli db
+     * @param kolumny lista kolumn
+     * @param table nazwa tabeli
+     * @return wynik zapytania
+     */
     public Cursor getColumn(String[] kolumny, String table) {
     	return db.query(table, kolumny, null, null, null, null, null);
     }
-    
+
+    /**
+     * Funkcja odpowiedzialna za pobranie wartości z danych kolumn tabeli db
+     * @param kolumny lista kolumn
+     * @param table nazwa tabeli
+     * @param where warunek szukania
+     * @return wynik zapytania
+     */
     public Cursor getColumn(String[] kolumny, String table, String where) {
     	return db.query(table, kolumny, where, null, null, null, null);
     }
 
+    /**
+     * Funkcja odpowiedzialna za wykonywania sql typu INSERT
+     * @param newTodoValues wartości sql'a
+     * @param table nazwa tabeli
+     * @return true/false
+     */
     public long insertTodo(ContentValues newTodoValues, String table) {
         return db.insert(table, null, newTodoValues);
     }

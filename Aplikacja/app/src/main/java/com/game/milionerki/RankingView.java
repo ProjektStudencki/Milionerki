@@ -16,11 +16,22 @@ import android.widget.ListView;
 
 import menu.ObjectDrawerItem;
 
+/**
+ * Klasa odpowiedzialna za tworzenie widoku rankingu
+ * @author Kamil Gammert
+ * Class <code>RankingView</code>
+   @version 1.0, Marzec,Kwiecien 2015
+ */
 @SuppressWarnings("unused") public class RankingView extends Activity {
 
 	private Map<String, String> ranking = new HashMap<String, String>();	
 	private sqlAdapter sqlAdapter;
 
+    /**
+     * Funkcja tworząca widok, generowanie domyślnie
+     *
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ranking_view);
@@ -60,13 +71,25 @@ import menu.ObjectDrawerItem;
 
 		return ranking;		
 	}
-	
+
+    /**
+     * Funkcja odpowiedzialna za tworzenie w menu przycisku fizycznego
+     *
+     * @param menu
+     * @return
+     */
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.start, menu);
         return true;
     }
 
+    /**
+     * Funkcja odpowiedzialna za wykonywanie akcji z menu
+     *
+     * @param item wybrana opcja menu
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

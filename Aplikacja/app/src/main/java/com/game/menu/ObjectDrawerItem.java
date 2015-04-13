@@ -2,6 +2,13 @@ package menu;
 
 import java.util.ArrayList;
 
+/**
+ * Klasa odpowiedzialna za stworzenie obiektu danych
+ *
+ * @author Kamil Gammert
+ * Class <code>ObjectDrawerItem</code>
+   @version 1.0, Marzec,Kwiecien 2015
+ */
 public class ObjectDrawerItem {
 
 	public String action;
@@ -17,6 +24,16 @@ public class ObjectDrawerItem {
 	
 	public int idLayout;
 
+    /**
+     * Konstruktor tworzący objekt
+     *
+     * @param action nazwa akcji
+     * @param idLayout id layoutu
+     * @param val nick gracza
+     * @param val1 nazwa gracza
+     * @param val2 awatar gracza
+     * @param lp pozycja gracza
+     */
 	public ObjectDrawerItem(String action, int idLayout, String val, String val1, String val2, int lp) {
 		this.idLayout = idLayout;
 		this.action = action;

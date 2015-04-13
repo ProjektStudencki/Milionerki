@@ -10,6 +10,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * Klasa odpowiedzialna za generowanie widoku wyboru avatara przy tworzeniu profilu
+ * @author Kamil Gammert
+ * Class <code>CreatePlayersAvatar</code>
+   @version 1.0, Marzec,Kwiecien 2015
+ */
 public class CreatePlayersAvatar extends Activity {
 
     private int selectedAvatar = 0;
@@ -20,6 +26,11 @@ public class CreatePlayersAvatar extends Activity {
     ImageView _prvAvek;
     ImageView _nxtAvek;
 
+    /**
+     * Funkcja tworząca widok, generowana domyślnie
+     *
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_players_avatar);
@@ -46,6 +57,9 @@ public class CreatePlayersAvatar extends Activity {
             _nxtAvek.setVisibility(View.VISIBLE);
         }
 
+        /**
+         *Nasłuch, który umożliwia cofanie avatara
+         */
         _prvAvek.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (selectedAvatar > 0) {
@@ -62,6 +76,9 @@ public class CreatePlayersAvatar extends Activity {
             }
         });
 
+        /**
+         * Nasłuch przewijający avatar do przodu
+         */
         _nxtAvek.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (selectedAvatar < maxAvatar) {
@@ -77,6 +94,9 @@ public class CreatePlayersAvatar extends Activity {
             }
         });
 
+        /**
+         * Nasłuch na hiperlnik "Dalej"
+         */
         _nextBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CreatePlayers.class);
@@ -86,6 +106,9 @@ public class CreatePlayersAvatar extends Activity {
             }
         });
 
+        /**
+         * Nasłuch powrotu do menu głównego
+         */
         _backBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
@@ -96,12 +119,24 @@ public class CreatePlayersAvatar extends Activity {
 
     }
 
+    /**
+     * Funkcja odpowiedzialna za tworzenie w menu przycisku fizycznego
+     *
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.start, menu);
         return true;
     }
 
+    /**
+     * Funkcja odpowiedzialna za wykonywanie akcji z menu
+     *
+     * @param item wybrana opcja menu
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
