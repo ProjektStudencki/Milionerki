@@ -3,11 +3,10 @@ package menu;
 import java.util.ArrayList;
 
 /**
- * Klasa odpowiedzialna za stworzenie obiektu danych
- *
- * @author Kamil Gammert
  * Class <code>ObjectDrawerItem</code>
-   @version 1.0, Marzec,Kwiecien 2015
+ * Klasa odpowiedzialna za stworzenie obiektu danych
+ * @author Kamil Gammert
+ * @version 1.0, Marzec,Kwiecien 2015
  */
 public class ObjectDrawerItem {
 

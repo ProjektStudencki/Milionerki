@@ -11,10 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
+ * Class <code>CreatePlayersAvatar</code>
  * Klasa odpowiedzialna za generowanie widoku wyboru avatara przy tworzeniu profilu
  * @author Kamil Gammert
- * Class <code>CreatePlayersAvatar</code>
-   @version 1.0, Marzec,Kwiecien 2015
+ * @version 1.0, Marzec,Kwiecien 2015
  */
 public class CreatePlayersAvatar extends Activity {
 

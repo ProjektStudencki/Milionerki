@@ -20,11 +20,10 @@ import org.w3c.dom.Text;
 import menu.ObjectDrawerItem;
 
 /**
+ * Class <code>DrawerItemCustomAdapter</code>	
  * Klasa odpowiedzialna za tworzenie widoków
- *
  * @author Kamil Gammert
- * Class <code>DrawerItemCustomAdapter</code>
-   @version 1.0, Marzec,Kwiecien 2015
+ * @version 1.0, Marzec,Kwiecien 2015
  */
 @SuppressLint("ViewHolder") public class DrawerItemCustomAdapter extends ArrayAdapter<ObjectDrawerItem> {
 

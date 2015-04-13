@@ -6,11 +6,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 /**
- * Klasa odpowiedzialna za wyświetlanie widoku "O grze"
- *
- * @author Kamil Gammert
  * Class <code>AboutView</code>
-   @version 1.0, Marzec,Kwiecien 2015
+ * Klasa odpowiedzialna za wyświetlanie widoku "O grze"
+ * @author Kamil Gammert
+ * @version 1.0, Marzec,Kwiecien 2015
  */
 public class AboutView extends Activity {
 

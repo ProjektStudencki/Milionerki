@@ -12,11 +12,10 @@ import android.content.Context;
 import android.database.Cursor;
 
 /**
- * Klasa odpowiedzialna za zapisywanie wyników rankingowych
- *
- * @author Kamil Gammert
  * Class <code>SaveResult</code>
-   @version 1.0, Marzec,Kwiecien 2015
+ * Klasa odpowiedzialna za zapisywanie wyników rankingowych
+ * @author Kamil Gammert
+ * @version 1.0, Marzec,Kwiecien 2015
  */
 
 public class SaveResult {

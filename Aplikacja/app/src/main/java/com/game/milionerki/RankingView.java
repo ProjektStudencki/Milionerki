@@ -17,10 +17,10 @@ import android.widget.ListView;
 import menu.ObjectDrawerItem;
 
 /**
+ * Class <code>RankingView</code>
  * Klasa odpowiedzialna za tworzenie widoku rankingu
  * @author Kamil Gammert
- * Class <code>RankingView</code>
-   @version 1.0, Marzec,Kwiecien 2015
+ * @version 1.0, Marzec,Kwiecien 2015
  */
 @SuppressWarnings("unused") public class RankingView extends Activity {
 

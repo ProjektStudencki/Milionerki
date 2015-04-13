@@ -17,10 +17,10 @@ import android.widget.Toast;
 import com.game.sql.sqlAdapter;
 
 /**
+ * Class <code>CreatePlayers</code>
  * Klasa odpowiedzialna za generowanie widoku tworzenia profilu
  * @author Kamil Gammert
- * Class <code>CreatePlayers</code>
-   @version 1.0, Marzec,Kwiecien 2015
+ * @version 1.0, Marzec,Kwiecien 2015
  */
 public class CreatePlayers extends Activity {
 

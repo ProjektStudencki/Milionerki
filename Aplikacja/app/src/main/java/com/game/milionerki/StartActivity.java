@@ -11,10 +11,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
+ * Class <code>StartActivity</code>
  * Klasa odpowiedzialna za tworzenie widoku głównego gry
  * @author Kamil Gammert
- * Class <code>StartActivity</code>
-   @version 1.0, Marzec,Kwiecien 2015
+ * @version 1.0, Marzec,Kwiecien 2015
  */
 @SuppressWarnings("unused") public class StartActivity extends Activity {
 

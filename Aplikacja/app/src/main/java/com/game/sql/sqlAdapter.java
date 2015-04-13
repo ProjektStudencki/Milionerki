@@ -10,11 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * Klasa odpowiedzialna za połączenie z bazą danych
- *
- * @author Kamil Gammert
  * Class <code>sqlAdapter</code>
-   @version 1.0, Marzec,Kwiecien 2015
+ * Klasa odpowiedzialna za połączenie z bazą danych
+ * @author Kamil Gammert
+ * @version 1.0, Marzec,Kwiecien 2015
  */
 public class sqlAdapter {
     private static final String DEBUG_TAG = "Baza danych";
