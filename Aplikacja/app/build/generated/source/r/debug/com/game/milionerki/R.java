@@ -47,27 +47,26 @@ public final class R {
     }
     public static final class id {
         public static final int aboutView=0x7f0a000a;
-        public static final int action_settings=0x7f0a001f;
-        public static final int avatar=0x7f0a001b;
+        public static final int action_settings=0x7f0a001e;
+        public static final int avatar=0x7f0a001a;
         public static final int backButton=0x7f0a000d;
         public static final int createBtn=0x7f0a0013;
         public static final int imageView=0x7f0a000e;
         public static final int imageView1=0x7f0a0001;
-        public static final int imageView2=0x7f0a0019;
         public static final int imageView3=0x7f0a000f;
         public static final int imageView4=0x7f0a0010;
-        public static final int listView=0x7f0a001d;
+        public static final int listView=0x7f0a001c;
         public static final int nameText=0x7f0a0012;
         public static final int nextButton=0x7f0a000c;
         public static final int nickText=0x7f0a0017;
-        public static final int numRanking=0x7f0a001c;
-        public static final int rankingText=0x7f0a001a;
+        public static final int numRanking=0x7f0a001b;
+        public static final int rankingText=0x7f0a0019;
         public static final int rankingView=0x7f0a0008;
         public static final int relativeLayout=0x7f0a0018;
         public static final int scrollView1=0x7f0a0000;
         public static final int startGame=0x7f0a0009;
         public static final int surnameText=0x7f0a0016;
-        public static final int textView=0x7f0a001e;
+        public static final int textView=0x7f0a001d;
         public static final int textView1=0x7f0a0002;
         public static final int textView10=0x7f0a0014;
         public static final int textView11=0x7f0a0015;

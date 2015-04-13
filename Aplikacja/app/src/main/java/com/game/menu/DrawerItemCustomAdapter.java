@@ -44,23 +44,23 @@ import menu.ObjectDrawerItem;
 
         if (folder.action == "rankingView") {
             RelativeLayout _lay = (RelativeLayout) listItem.findViewById(R.id.relativeLayout);
-            ImageView _img = (ImageView) listItem.findViewById(R.id.imageView2);
+            //ImageView _img = (ImageView) listItem.findViewById(R.id.imageView2);
             TextView _lp = (TextView) listItem.findViewById(R.id.numRanking);
             TextView _rankingText = (TextView) listItem.findViewById(R.id.rankingText);
             ImageView _avatar = (ImageView) listItem.findViewById(R.id.avatar);
 
             if (folder.lp == 1) {
                 _lay.setBackgroundResource(R.color.ranking1);
-                _img.setImageResource(R.drawable.obr_1);
+                //_img.setImageResource(R.drawable.obr_1);
                 _lp.setText(Html.fromHtml("<b>1</b>"));
                 _rankingText.setTextColor(Color.BLACK);
             } else if (folder.lp == 2) {
                 _lay.setBackgroundResource(R.color.ranking2);
-                _img.setImageResource(R.drawable.obr_2);
+                //_img.setImageResource(R.drawable.obr_2);
                 _lp.setText(Html.fromHtml("<b>2</b>"));
             } else if (folder.lp == 3) {
                 _lay.setBackgroundResource(R.color.ranking3);
-                _img.setImageResource(R.drawable.obr_3);
+                //_img.setImageResource(R.drawable.obr_3);
                 _lp.setText(Html.fromHtml("<b>3</b>"));
             }
 
