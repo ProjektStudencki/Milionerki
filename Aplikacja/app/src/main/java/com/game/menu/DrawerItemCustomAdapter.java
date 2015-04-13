@@ -74,16 +74,16 @@ import menu.ObjectDrawerItem;
             if (folder.lp == 1) {
                 _lay.setBackgroundResource(R.color.ranking1);
                 //_img.setImageResource(R.drawable.obr_1);
-                _lp.setText(Html.fromHtml("<b>1</b>"));
+                _lp.setText(Html.fromHtml("<b>I</b>"));
                 _rankingText.setTextColor(Color.BLACK);
             } else if (folder.lp == 2) {
                 _lay.setBackgroundResource(R.color.ranking2);
                 //_img.setImageResource(R.drawable.obr_2);
-                _lp.setText(Html.fromHtml("<b>2</b>"));
+                _lp.setText(Html.fromHtml("<b>II</b>"));
             } else if (folder.lp == 3) {
                 _lay.setBackgroundResource(R.color.ranking3);
                 //_img.setImageResource(R.drawable.obr_3);
-                _lp.setText(Html.fromHtml("<b>3</b>"));
+                _lp.setText(Html.fromHtml("<b>III</b>"));
             }
 
             _rankingText.setText(folder.nick + " " + folder.name);
