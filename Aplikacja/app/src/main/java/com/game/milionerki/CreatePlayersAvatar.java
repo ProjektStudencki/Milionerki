@@ -43,7 +43,7 @@ public class CreatePlayersAvatar extends Activity {
         _img = (ImageView) findViewById(R.id.imageView4);
 
         array_avatar = getResources().obtainTypedArray(R.array.array_avek);
-        maxAvatar = array_avatar.length();
+        maxAvatar = array_avatar.length() - 1;
 
         if (selectedAvatar == 0) {
             _prvAvek.setVisibility(View.INVISIBLE);
@@ -66,6 +66,10 @@ public class CreatePlayersAvatar extends Activity {
                     selectedAvatar -= 1;
                 }
 
+                if (selectedAvatar < maxAvatar) {
+                    _nxtAvek.setVisibility(View.VISIBLE);
+                }
+
                 if (selectedAvatar == 0) {
                     _prvAvek.setVisibility(View.INVISIBLE);
                 } else {
@@ -83,6 +87,10 @@ public class CreatePlayersAvatar extends Activity {
             public void onClick(View v) {
                 if (selectedAvatar < maxAvatar) {
                     selectedAvatar += 1;
+                }
+
+                if (selectedAvatar > 0) {
+                    _prvAvek.setVisibility(View.VISIBLE);
                 }
 
                 if (selectedAvatar == maxAvatar) {
@@ -139,10 +147,12 @@ public class CreatePlayersAvatar extends Activity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                finish();
+                break;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

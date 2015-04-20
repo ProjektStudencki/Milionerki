@@ -41,5 +41,33 @@ public class ObjectDrawerItem {
         this.avatar = val2;
         this.lp = lp;
 	}
+
+    /**
+     * Konstruktor tworzący objekt
+     *
+     * @param action nazwa akcji
+     * @param idLayout id layoutu
+     * @param val nick gracza
+     * @param val1 avatar
+     */
+    public ObjectDrawerItem(String action, int idLayout, String val, String val1) {
+        this.idLayout = idLayout;
+        this.action = action;
+        this.nick = val;
+        this.avatar = val1;
+    }
+
+    /**
+     * Konstruktor tworzący objekt
+     *
+     * @param action nazwa akcji
+     * @param idLayout id layoutu
+     * @param val nazwa opcji w menu
+     */
+    public ObjectDrawerItem(String action, int idLayout, String val) {
+        this.idLayout = idLayout;
+        this.action = action;
+        this.name = val;
+    }
 }
 

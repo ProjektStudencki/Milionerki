@@ -12,12 +12,12 @@
         android:paddingBottom="10dp">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="315dp"
             android:layout_height="fill_parent"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="@+id/avatar"
             android:id="@+id/relativeLayout"
-            android:layout_marginRight="30dp"
             android:background="@color/blue">
 
             <TextView
@@ -31,8 +31,6 @@
                 android:layout_marginRight="40dp"
                 android:gravity="center"
                 android:textColor="@color/fff" />
-
-
         </RelativeLayout>
 
         <ImageView

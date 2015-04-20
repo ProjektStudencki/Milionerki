@@ -3,6 +3,7 @@ package com.game.menu;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -71,16 +72,16 @@ import menu.ObjectDrawerItem;
             ImageView _avatar = (ImageView) listItem.findViewById(R.id.avatar);
 
             if (folder.lp == 1) {
-                _lay.setBackgroundResource(R.color.ranking1);
+                _lay.setBackgroundResource(R.drawable.zlo2);
                 //_img.setImageResource(R.drawable.obr_1);
                 _lp.setText(Html.fromHtml("<b>I</b>"));
                 _rankingText.setTextColor(Color.BLACK);
             } else if (folder.lp == 2) {
-                _lay.setBackgroundResource(R.color.ranking2);
+                _lay.setBackgroundResource(R.drawable.sre2);
                 //_img.setImageResource(R.drawable.obr_2);
                 _lp.setText(Html.fromHtml("<b>II</b>"));
             } else if (folder.lp == 3) {
-                _lay.setBackgroundResource(R.color.ranking3);
+                _lay.setBackgroundResource(R.drawable.bra2);
                 //_img.setImageResource(R.drawable.obr_3);
                 _lp.setText(Html.fromHtml("<b>III</b>"));
             }
@@ -90,6 +91,17 @@ import menu.ObjectDrawerItem;
                 _avatar.setImageResource(R.drawable.awatar_k1);
             else
                 _avatar.setImageResource(R.drawable.awatar_k2);
+        } else if (folder.action == "profilView") {
+            TextView _nick = (TextView) listItem.findViewById(R.id.textView1);
+            ImageView _img = (ImageView) listItem.findViewById(R.id.imageView1);
+            int _avek = Integer.parseInt(folder.avatar);
+
+            TypedArray array_avatar = listItem.getResources().obtainTypedArray(R.array.array_avek);
+            _img.setImageResource(array_avatar.getResourceId(_avek, -1));
+            _nick.setText(folder.nick);
+        } else if (folder.action == "menuItem") {
+            TextView textViewName = (TextView) listItem.findViewById(R.id.textViewName);
+            textViewName.setText(folder.name);
         }
 				
 		return listItem;

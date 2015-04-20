@@ -40,6 +40,13 @@ import android.widget.TextView;
         _rankingView.setPaintFlags(_rankingView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         _aboutView.setPaintFlags(_aboutView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
+        _startGame.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ChooseProfil.class);
+                startActivity(intent);
+            }
+        });
+
         _rankingView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RankingView.class);
@@ -77,10 +84,12 @@ import android.widget.TextView;
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                finish();
+                break;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

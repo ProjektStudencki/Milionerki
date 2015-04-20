@@ -22,7 +22,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
+        <activity
+            android:name=".ChooseProfil"
+            android:label="@string/app_choose_profil" >
+        </activity>
+            <activity
+                android:name=".CreatePlayersAvatar"
+                android:label="@string/app_create_profil" >
+            </activity>
+            <activity
+                android:name=".CreatePlayers"
+                android:label="@string/app_create_profil" >
+            </activity>
+
+        <activity
+            android:name=".GameView"
+            android:label="@string/app_game" >
+        </activity>
+
         <activity
             android:name=".AboutView"
             android:label="@string/app_name_about" >

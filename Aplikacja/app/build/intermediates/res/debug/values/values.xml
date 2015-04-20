@@ -5,6 +5,16 @@
     <string-array name="array_avek">
         <item>@drawable/awatar_k1</item>
         <item>@drawable/awatar_k2</item>
+        <item>@drawable/awatar_k3</item>
+        <item>@drawable/awatar_m1</item>
+        <item>@drawable/awatar_m2</item>
+        <item>@drawable/awatar_m3</item>
+    </string-array>
+    <string-array name="navigation_items_array">
+        <item>Zrezygnuj</item>
+        <item>Nowa gra</item>
+        <item>Najlepsze wyniki</item>
+        <item>O grze</item>
     </string-array>
     <!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/values/styles.xml -->
     <eat-comment/>
@@ -25,7 +35,15 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="action_settings">Ustawienia</string>
+    <string name="action_settings">Wyjdź</string>
+    <string name="alert_yes_or_no">Czy na pewno chcesz wykonać ta akcję?</string>
+    <string name="alert_yes_or_no_about">Czy na pewno chcesz anulować rozgrywkę by przeczytać inforacje o grze?</string>
+    <string name="alert_yes_or_no_end">Czy na pewno chcesz odejść z gry z aktualną wygraną?</string>
+    <string name="alert_yes_or_no_new">Czy na pewno chcesz rozpocząć od nowa?</string>
+    <string name="alert_yes_or_no_ranking">Czy na pewno chcesz anulować rozgrywkę by zobaczyć ranking?</string>
+    <string name="app_choose_profil">Milionerki</string>
+    <string name="app_create_profil">Milionerki</string>
+    <string name="app_game">Milionerki</string>
     <string name="app_name">Milionerki</string>
     <string name="app_name_about">Milionerki - O grze</string>
     <string name="app_name_ranking">Ranking</string>
@@ -33,16 +51,21 @@
     <string name="btn_game_info">O grze</string>
     <string name="btn_game_start">Rozpocznij grę</string>
     <string name="btn_game_wyniki">Najlepsze wyniki</string>
-    <string name="choose_avek">Wybór avataru</string>
-    <string name="createBtn">Załóż</string>
-    <string name="create_profil">Tworzenie profilu</string>
+    <string name="choose_avek">Wybierz avatar</string>
+    <string name="choose_profil">Wybór profilu gracza</string>
+    <string name="createBtn">Stwórz</string>
+    <string name="create_profil">Uzupełnij dane</string>
     <string name="create_profil_name">Imię</string>
     <string name="create_profil_nick">Pseudonim</string>
     <string name="create_profil_srunname">Nazwisko</string>
+    <string name="drawer_close">Zamknięte menu</string>
+    <string name="drawer_open">Aktywne menu</string>
     <string name="error_create">Konto o takim nicku już istnieje. Wybierz inny!</string>
+    <string name="newProfil">Nowy profil</string>
     <string name="next">Dalej</string>
+    <string name="no">Nie</string>
     <string name="ranking_title">Najlepsze wyniki</string>
-    <string name="success_create_profil">Założonto konto!</string>
+    <string name="success_create_profil">Założono konto!</string>
     <string name="text_autorzy">Damian Graczyk, Kamil Gammert, Konrad Barbasiewicz, Andrzej Pietrzak, Leszek Sierocki</string>
     <string name="text_system_rozgrywki">
         Gra Milionerki opiera się na większości zasad popularnego teleturnieju "Milionerzy".\n
@@ -54,6 +77,7 @@
     <string name="title_autorzy">Autorzy</string>
     <string name="title_system_rozgrywki">System rozgrywki</string>
     <string name="title_wersja">Wersja</string>
+    <string name="yes">Tak</string>
     <!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
