@@ -73,5 +73,19 @@
     <string name="no">Nie</string>
 
     <!-- GRA -->
+    <string name="cash">Próg:</string>
+    <string name="question_count">Pytanie:</string>
+    <string-array name="cash_array">
+        <item>100</item>
+        <item>250</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2500</item>
+        <item>7500</item>
+        <item>20000</item>
+        <item>35000</item>
+        <item>50000</item>
+        <item>100000</item>
+    </string-array>
 
 </resources>

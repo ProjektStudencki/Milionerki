@@ -7,20 +7,27 @@ import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.text.format.Time;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.game.gameAction.QuestionsData;
 import com.game.menu.DrawerItemCustomAdapter;
 
 import java.util.HashMap;
@@ -51,6 +58,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     private int cash = 0;
 
     private int profil = 0;
+    private Time now;
 
     /**
      * Stworzenie widoku gry
@@ -61,17 +69,33 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_view);
 
+        final Button btn_a = (Button) findViewById(R.id.btn_a);
+        final Button btn_b = (Button) findViewById(R.id.btn_b);
+        final Button btn_c = (Button) findViewById(R.id.btn_c);
+        final Button btn_d = (Button) findViewById(R.id.btn_d);
+
         /**
          * Odebranie danych z wyboru profilu
          */
         Intent intents = getIntent();
         if (intents != null) {
             profil = intents.getIntExtra("profil", 0);
-            String nick = intents.getStringExtra("nick");
+            final String nick = intents.getStringExtra("nick");
 
-            TextView _testNick = (TextView) findViewById(R.id.testNick);
-            _testNick.setText(nick);
+            questionCount = 1;
         }
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(metrics);
+
+        final float width = metrics.widthPixels;
+        LinearLayout.LayoutParams layoutParamsWidth50 = new LinearLayout.LayoutParams((int) (width/2) , ViewGroup.LayoutParams.MATCH_PARENT);
+
+        btn_a.setLayoutParams(layoutParamsWidth50);
+        btn_b.setLayoutParams(layoutParamsWidth50);
+        btn_c.setLayoutParams(layoutParamsWidth50);
+        btn_d.setLayoutParams(layoutParamsWidth50);
 
         /**
          * Ustawianie tytułu oraz paneli
@@ -130,6 +154,61 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             selectItem(0);
         }
 
+        /** Ustawienie aktualnego czasu */
+        Time now = new Time(Time.getCurrentTimezone());
+        now.setToNow();
+
+        /** Ustawianie **/
+        TextView _currCash = (TextView) findViewById(R.id.prog_txt);
+        TextView _currQuestionCount = (TextView) findViewById(R.id.question_count);
+        TypedArray cash_array = getResources().obtainTypedArray(R.array.cash_array);
+
+        _currCash.setText(getResources().getString(R.string.cash) + " " + cash_array.getResourceId(questionCount - 1, 0));
+        _currQuestionCount.setText(getResources().getString(R.string.question_count) + " " + questionCount);
+
+        /** Losowanie pytań */
+        int tab_quest[] = new int[10];
+        final QuestionsData questionsData = new QuestionsData(getApplicationContext());
+
+        /** pobranie pytania */
+        question = questionsData.downloadQuestions(questionCount, tab_quest);
+        String val = question.get("error");
+        if (val != null) {
+            finish();
+        } else {
+            String poprawna_odp = question.get("poprawna");
+            tab_quest[questionCount - 1] = Integer.parseInt(question.get("id"));
+
+            TextView question_txt = (TextView) findViewById(R.id.question_txt);
+
+            question_txt.setText(question.get("pytanie"));
+            btn_a.setText(question.get("odp_0"));
+            btn_b.setText(question.get("odp_1"));
+            btn_c.setText(question.get("odp_2"));
+            btn_d.setText(question.get("odp_3"));
+        }
+
+        /** nasłuch na odpowiedzi */
+        btn_a.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                questionsData.checkAnswer(question, 0);
+            }
+        });
+        btn_b.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                questionsData.checkAnswer(question, 1);
+            }
+        });
+        btn_c.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                questionsData.checkAnswer(question, 2);
+            }
+        });
+        btn_d.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                questionsData.checkAnswer(question, 3);
+            }
+        });
 
     }
 

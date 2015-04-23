@@ -66,5 +66,26 @@ public class SaveResult {
         sqlAdapter.insertTodo(newTodoValues, sqlAdapter.DB_RESULTS_TABLE);
         sqlAdapter.close();
 	}
+
+    public void saveQuestion(Context context, String Pytanie, String Poprawna_odp, String Zla_odp1, String Zla_odp2, String Zla_odp3, int Poziom_trudnosci) {
+        sqlAdapter = new sqlAdapter(context);
+        sqlAdapter.open();
+
+        String[] kolumny = { "Nr_Pytania" };
+        Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_QUESTION_TABLE);
+        int count = data.getCount();
+
+        ContentValues newTodoValues = new ContentValues();
+        newTodoValues.put("Nr_Pytania", count + 1);
+        newTodoValues.put("Pytanie", Pytanie);
+        newTodoValues.put("Poprawna_odp", Poprawna_odp);
+        newTodoValues.put("Zla_odp1", Zla_odp1);
+        newTodoValues.put("Zla_odp2", Zla_odp2);
+        newTodoValues.put("Zla_odp3", Zla_odp3);
+        newTodoValues.put("Poziom_trudnosci", Poziom_trudnosci);
+
+        sqlAdapter.insertTodo(newTodoValues, sqlAdapter.DB_QUESTION_TABLE);
+        sqlAdapter.close();
+    }
 	
 }
