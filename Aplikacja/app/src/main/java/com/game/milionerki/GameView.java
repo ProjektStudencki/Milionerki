@@ -64,6 +64,16 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
 
     private String nick = "";
 
+
+    //ustawienia pytań
+    private Button btn_a;
+    private Button btn_b;
+    private Button btn_c;
+    private Button btn_d;
+
+    private int tab_quest[] = new int[10];
+    private QuestionsData questionsData;
+
     /**
      * Stworzenie widoku gry
      *
@@ -73,10 +83,10 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_view);
 
-        final Button btn_a = (Button) findViewById(R.id.btn_a);
-        final Button btn_b = (Button) findViewById(R.id.btn_b);
-        final Button btn_c = (Button) findViewById(R.id.btn_c);
-        final Button btn_d = (Button) findViewById(R.id.btn_d);
+        btn_a = (Button) findViewById(R.id.btn_a);
+        btn_b = (Button) findViewById(R.id.btn_b);
+        btn_c = (Button) findViewById(R.id.btn_c);
+        btn_d = (Button) findViewById(R.id.btn_d);
 
         /**
          * Odebranie danych z wyboru profilu
@@ -170,49 +180,107 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         _currQuestionCount.setText(getResources().getString(R.string.question_count) + " " + questionCount);
 
         /** Losowanie pytań */
-        int tab_quest[] = new int[10];
-        final QuestionsData questionsData = new QuestionsData(getApplicationContext());
+        questionsData = new QuestionsData(getApplicationContext());
+        setQuestion();
+    }
 
-        /** pobranie pytania */
-        question = questionsData.downloadQuestions(questionCount, tab_quest);
-        String val = question.get("error");
-        if (val != null) {
-            finish();
+    /**
+     * Funkcja odpowiedzialna za ustawianie pytań
+     */
+    private void setQuestion() {
+        if (questionCount == 10) {
+            endGame("win");
         } else {
-            String poprawna_odp = question.get("poprawna");
-            tab_quest[questionCount - 1] = Integer.parseInt(question.get("id"));
+        /* pobranie pytań */
+            question = questionsData.downloadQuestions(questionCount, tab_quest);
+            String val = question.get("error");
+            if (val != null) {
+                finish();
+            } else {
+                String poprawna_odp = question.get("poprawna");
+                tab_quest[questionCount - 1] = Integer.parseInt(question.get("id"));
 
-            TextView question_txt = (TextView) findViewById(R.id.question_txt);
+                TextView question_txt = (TextView) findViewById(R.id.question_txt);
 
-            question_txt.setText(question.get("pytanie"));
-            btn_a.setText(question.get("odp_0"));
-            btn_b.setText(question.get("odp_1"));
-            btn_c.setText(question.get("odp_2"));
-            btn_d.setText(question.get("odp_3"));
+                question_txt.setText(question.get("pytanie"));
+                btn_a.setText(question.get("odp_0"));
+                btn_b.setText(question.get("odp_1"));
+                btn_c.setText(question.get("odp_2"));
+                btn_d.setText(question.get("odp_3"));
+            }
+
+            /** nasłuch na odpowiedzi */
+            btn_a.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if (!questionsData.checkAnswer(question, 0)) {
+                        endGame("loss");
+                    } else {
+                        questionCount++;
+                        setQuestion();
+                    }
+                }
+            });
+            btn_b.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if (!questionsData.checkAnswer(question, 1)) {
+                        endGame("loss");
+                    } else {
+                        questionCount++;
+                        setQuestion();
+                    }
+                }
+            });
+            btn_c.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if (!questionsData.checkAnswer(question, 2)) {
+                        endGame("loss");
+                    } else {
+                        questionCount++;
+                        setQuestion();
+                    }
+                }
+            });
+            btn_d.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if (!questionsData.checkAnswer(question, 3)) {
+                        endGame("loss");
+                    } else {
+                        questionCount++;
+                        setQuestion();
+                    }
+                }
+            });
+        }
+    }
+
+    /**
+     * Funkcja odpowiedzialna za kończenie gry
+     * @param typ rodzaj kończenia gry
+     */
+    private void endGame(String typ) {
+        if(!typ.equalsIgnoreCase("loss")) {
+            TypedArray cash_array = getResources().obtainTypedArray(R.array.cash_array);
+            String val = cash_array.getString(questionCount - 1);
+            int cash = Integer.parseInt(val);
+
+            Calendar end = Calendar.getInstance();
+            float timeGame = (float)(end.getTimeInMillis() - now.getTimeInMillis());
+
+            SaveResult save = new SaveResult();
+            save.saveReuslt(getApplicationContext(), nick, cash, timeGame, profil);
         }
 
-        /** nasłuch na odpowiedzi */
-        btn_a.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                questionsData.checkAnswer(question, 0);
-            }
-        });
-        btn_b.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                questionsData.checkAnswer(question, 1);
-            }
-        });
-        btn_c.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                questionsData.checkAnswer(question, 2);
-            }
-        });
-        btn_d.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                questionsData.checkAnswer(question, 3);
-            }
-        });
+        if (typ.equalsIgnoreCase("win")) {
+            Toast.makeText(getApplicationContext(), "Gratulacje! Wygrałeś główną nagrodę.", Toast.LENGTH_LONG);
+        } else if(typ.equalsIgnoreCase("loss")) {
+            Toast.makeText(getApplicationContext(), "Przegrałeś! Źle odpowiedziałeś na to pytanie.", Toast.LENGTH_LONG);
+        } else if(typ.equalsIgnoreCase("end")) {
+            Toast.makeText(getApplicationContext(), "Wynik zapisany.", Toast.LENGTH_LONG);
+        }
 
+        Intent intent = new Intent(getApplicationContext(), RankingView.class);
+        startActivity(intent);
+        finish();
     }
 
     /**
@@ -299,15 +367,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             alert = dialogBuilder.create();
             alert.show();
         } else {
-            TypedArray cash_array = getResources().obtainTypedArray(R.array.cash_array);
-            String val = cash_array.getString(questionCount - 1);
-            int cash = Integer.parseInt(val);
-
-            Calendar end = Calendar.getInstance();
-            float timeGame = (float)(end.getTimeInMillis() - now.getTimeInMillis());
-
-            SaveResult save = new SaveResult();
-            save.saveReuslt(getApplicationContext(), nick, cash, timeGame, profil);
+            endGame("end");
         }
     }
 
