@@ -160,6 +160,7 @@ public class sqlAdapter {
                             "(59, 'Od czego pochodzi popularny skrót GG:', 'Gadu Gadu', 'Grupa Gandalfa ', 'Głupi Gigant ', 'żadna z powyższych ', 1), " +
                             "(60, 'Co się kręci wokół Ziemi:', 'Księżyc', 'Słońce', 'Mars', 'Wenus', 2)"
             );
+
         }
 
         /**
