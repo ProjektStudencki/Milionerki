@@ -37,18 +37,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ff9dbc6-8f9b-4cde-ae1b-9d9093f5490f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/ChooseProfil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/ChooseProfil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/menu/DrawerItemCustomAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/menu/DrawerItemCustomAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/gameAction/QuestionsData.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/gameAction/QuestionsData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/game/milionerki/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/game/milionerki/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/RankingView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/RankingView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/game_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/game_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/sql/sqlAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/sql/sqlAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Milionerki.iws" />
@@ -102,133 +92,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DrawerItemCustomAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/menu/DrawerItemCustomAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="868" max-vertical-offset="1598">
-              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sqlAdapter.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="sqlAdapter.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/sql/sqlAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.178572" vertical-offset="1343" max-vertical-offset="4131">
-              <caret line="104" column="147" selection-start-line="104" selection-start-column="136" selection-end-line="104" selection-end-column="147" />
+            <state vertical-scroll-proportion="0.94670844" vertical-offset="2048" max-vertical-offset="5049">
+              <caret line="165" column="29" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#7023#7024#0" expanded="true" />
-                <element signature="e#7061#7062#0" expanded="true" />
+                <element signature="e#16259#16260#0" expanded="true" />
+                <element signature="e#16297#16298#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuestionsData.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/gameAction/QuestionsData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.964286" vertical-offset="765" max-vertical-offset="1802">
-              <caret line="81" column="32" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.392857" vertical-offset="6345" max-vertical-offset="8228">
-              <caret line="366" column="5" selection-start-line="366" selection-start-column="5" selection-end-line="366" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1763#1779#0" expanded="true" />
-                <element signature="e#4999#5019#0" expanded="true" />
-                <element signature="e#5064#5085#0" expanded="true" />
-                <element signature="e#6601#6640#0" expanded="true" />
-                <element signature="e#6730#6779#0" expanded="true" />
-                <element signature="e#7690#8168#0" expanded="true" />
-                <element signature="e#8153#8154#0" expanded="true" />
-                <element signature="e#8208#8686#0" expanded="true" />
-                <element signature="e#8671#8672#0" expanded="true" />
-                <element signature="e#8726#9204#0" expanded="true" />
-                <element signature="e#9189#9190#0" expanded="true" />
-                <element signature="e#9244#9722#0" expanded="true" />
-                <element signature="e#9707#9708#0" expanded="true" />
-                <element signature="e#11782#11783#0" expanded="true" />
-                <element signature="e#11809#11810#0" expanded="true" />
-                <element signature="e#14486#14538#0" expanded="true" />
-                <element signature="e#14613#14669#0" expanded="true" />
-                <element signature="e#14744#14798#0" expanded="true" />
-                <element signature="e#15043#15912#0" expanded="true" />
-                <element signature="e#15901#15902#0" expanded="true" />
-                <element signature="e#16005#16132#0" expanded="true" />
-                <element signature="e#16121#16122#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="731">
-              <caret line="34" column="27" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game_view.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/game_view.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2788">
-              <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChooseProfil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/ChooseProfil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1820" max-vertical-offset="2567">
-              <caret line="151" column="107" selection-start-line="151" selection-start-column="99" selection-end-line="151" selection-end-column="107" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreatePlayersAvatar.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/CreatePlayersAvatar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="817" max-vertical-offset="2516">
-              <caret line="78" column="86" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SaveResult.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/gameAction/SaveResult.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="308" max-vertical-offset="1462">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RankingView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/RankingView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="426" max-vertical-offset="1615">
-              <caret line="46" column="68" selection-start-line="46" selection-start-column="68" selection-end-line="46" selection-end-column="68" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1437,7 +1309,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/ranking_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/gameAction/SaveResult.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/game/sql/sqlAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/gameAction/QuestionsData.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/RankingView.java" />
@@ -1445,6 +1316,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/ChooseProfil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/game_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/sql/sqlAdapter.java" />
       </list>
     </option>
   </component>
@@ -1481,8 +1353,8 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1774,7 +1646,7 @@
     <property name="recentsLimit" value="5" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_4_API_15" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="options.lastSelected" value="settings.github" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -1994,7 +1866,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2009,7 +1881,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21357064" sideWeight="0.4792111" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21357064" sideWeight="0.4792111" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17537314" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -2330,14 +2202,14 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="228" max-vertical-offset="1054">
           <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
           <folding>
-            <element signature="e#413#431#0" expanded="true" />
-            <element signature="e#560#578#0" expanded="true" />
-            <element signature="e#891#918#0" expanded="true" />
-            <element signature="e#1045#1072#0" expanded="true" />
-            <element signature="e#1197#1224#0" expanded="true" />
-            <element signature="e#1333#1351#0" expanded="true" />
-            <element signature="e#1457#1481#0" expanded="true" />
-            <element signature="e#1589#1615#0" expanded="true" />
+            <element signature="e#413#431#0" expanded="false" />
+            <element signature="e#560#578#0" expanded="false" />
+            <element signature="e#891#918#0" expanded="false" />
+            <element signature="e#1045#1072#0" expanded="false" />
+            <element signature="e#1197#1224#0" expanded="false" />
+            <element signature="e#1333#1351#0" expanded="false" />
+            <element signature="e#1457#1481#0" expanded="false" />
+            <element signature="e#1589#1615#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2432,7 +2304,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/gameAction/QuestionsData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.964286" vertical-offset="765" max-vertical-offset="1802">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="2023">
           <caret line="81" column="32" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="32" />
           <folding />
         </state>
@@ -2446,47 +2318,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/sql/sqlAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.178572" vertical-offset="1343" max-vertical-offset="4131">
-          <caret line="104" column="147" selection-start-line="104" selection-start-column="136" selection-end-line="104" selection-end-column="147" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7023#7024#0" expanded="true" />
-            <element signature="e#7061#7062#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.392857" vertical-offset="6345" max-vertical-offset="8228">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6345" max-vertical-offset="8228">
           <caret line="366" column="5" selection-start-line="366" selection-start-column="5" selection-end-line="366" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1763#1779#0" expanded="true" />
-            <element signature="e#4999#5019#0" expanded="true" />
-            <element signature="e#5064#5085#0" expanded="true" />
-            <element signature="e#6601#6640#0" expanded="true" />
-            <element signature="e#6730#6779#0" expanded="true" />
-            <element signature="e#7690#8168#0" expanded="true" />
-            <element signature="e#8153#8154#0" expanded="true" />
-            <element signature="e#8208#8686#0" expanded="true" />
-            <element signature="e#8671#8672#0" expanded="true" />
-            <element signature="e#8726#9204#0" expanded="true" />
-            <element signature="e#9189#9190#0" expanded="true" />
-            <element signature="e#9244#9722#0" expanded="true" />
-            <element signature="e#9707#9708#0" expanded="true" />
-            <element signature="e#11782#11783#0" expanded="true" />
-            <element signature="e#11809#11810#0" expanded="true" />
-            <element signature="e#14486#14538#0" expanded="true" />
-            <element signature="e#14613#14669#0" expanded="true" />
-            <element signature="e#14744#14798#0" expanded="true" />
-            <element signature="e#15043#15912#0" expanded="true" />
-            <element signature="e#15901#15902#0" expanded="true" />
-            <element signature="e#16005#16132#0" expanded="true" />
-            <element signature="e#16121#16122#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2498,6 +2334,17 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2788">
           <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/sql/sqlAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.94670844" vertical-offset="2048" max-vertical-offset="5049">
+          <caret line="165" column="29" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
+          <folding>
+            <element signature="e#16259#16260#0" expanded="true" />
+            <element signature="e#16297#16298#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
