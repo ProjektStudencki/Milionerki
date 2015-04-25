@@ -33,6 +33,8 @@
     <color name="bg">#ff232d48</color>
     <color name="black">#ff000000</color>
     <color name="blue">#ff33acdb</color>
+    <color name="btn">#ff66c9e2</color>
+    <color name="btn_active">#ff4fe243</color>
     <color name="fff">#ffffffff</color>
     <color name="rankin_num">#ffa200</color>
     <color name="ranking1">#ffd700</color>

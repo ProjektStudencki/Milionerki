@@ -44,7 +44,7 @@ import menu.ObjectDrawerItem;
         sqlAdapter = new sqlAdapter(getApplicationContext());
         sqlAdapter.open();
 
-        String[] kolumny = { "Pseudonim", "Uzyskany_wynik" };
+        String[] kolumny = { "Pseudonim", "Uzyskany_wynik", "Avatar" };
         Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_RESULTS_TABLE);
 
         int count = data.getCount();
@@ -55,7 +55,7 @@ import menu.ObjectDrawerItem;
             while (data.moveToNext()) {
                 String name = data.getString(0);
                 String result = data.getString(1);
-                String avatar = "";
+                String avatar = data.getString(2);
 
                 rankingObject[i] = new ObjectDrawerItem("rankingView", R.layout.ranking_row, name, result, avatar, (i + 1));
                 i++;

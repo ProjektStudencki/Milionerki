@@ -27,7 +27,7 @@
         <item>@drawable/awatar_m1</item>
         <item>@drawable/awatar_m2</item>
         <item>@drawable/awatar_m3</item>
-    </string-array></file><file path="E:\Android Studio\workspace\Milionerki\Aplikacja\app\src\main\res\values\styles.xml" qualifiers=""><color name="text">#ff8aacd8</color><color name="ranking1">#ffd700</color><color name="ranking3">#b26434</color><color name="ranking2">#b8b8b8</color><color name="black">#ff000000</color><color name="rankin_num">#ffa200</color><style name="AppTheme" parent="AppBaseTheme">
+    </string-array></file><file path="E:\Android Studio\workspace\Milionerki\Aplikacja\app\src\main\res\values\styles.xml" qualifiers=""><color name="text">#ff8aacd8</color><color name="ranking1">#ffd700</color><color name="ranking3">#b26434</color><color name="ranking2">#b8b8b8</color><color name="black">#ff000000</color><color name="rankin_num">#ffa200</color><color name="btn_active">#ff4fe243</color><color name="btn">#ff66c9e2</color><style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style><color name="title">#ffccf00c</color><color name="blue">#ff33acdb</color><color name="bg">#ff232d48</color><color name="fff">#ffffffff</color><color name="txt_gold">#e2cd1f</color><style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

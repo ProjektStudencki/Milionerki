@@ -2,6 +2,7 @@ package com.game.gameAction;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.game.milionerki.R;
 import com.game.sql.sqlAdapter;
@@ -36,9 +37,10 @@ import menu.ObjectDrawerItem;
                 error = false;
                 Random r = new Random();
                 chooseQuestion = r.nextInt(total + 1);
+                data.moveToPosition(chooseQuestion);
 
                 for (int i = 0; i < oldQuestion.length; i++) {
-                    if (oldQuestion[i] == chooseQuestion) {
+                    if (oldQuestion[i] == data.getInt(0)) {
                         error = true;
                     }
                 }
@@ -67,6 +69,8 @@ import menu.ObjectDrawerItem;
                 Random r = new Random();
                 int rand = r.nextInt(max - min + 1) + min;
                 error = false;
+
+                Log.i("Info", "while");
 
                 for (int i = 0; i < bylo.length; i++) {
                     if (bylo[i] == rand)

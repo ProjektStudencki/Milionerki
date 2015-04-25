@@ -8,11 +8,13 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.text.format.Time;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -83,10 +85,14 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_view);
 
+        for (int i = 0; i < 10; i++)
+            tab_quest[i] = -1;
+
         btn_a = (Button) findViewById(R.id.btn_a);
         btn_b = (Button) findViewById(R.id.btn_b);
         btn_c = (Button) findViewById(R.id.btn_c);
         btn_d = (Button) findViewById(R.id.btn_d);
+        onOrOffButton(true);
 
         /**
          * Odebranie danych z wyboru profilu
@@ -103,13 +109,14 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         wm.getDefaultDisplay().getMetrics(metrics);
 
+        /*
         final float width = metrics.widthPixels;
         LinearLayout.LayoutParams layoutParamsWidth50 = new LinearLayout.LayoutParams((int) (width/2) , ViewGroup.LayoutParams.MATCH_PARENT);
 
         btn_a.setLayoutParams(layoutParamsWidth50);
         btn_b.setLayoutParams(layoutParamsWidth50);
         btn_c.setLayoutParams(layoutParamsWidth50);
-        btn_d.setLayoutParams(layoutParamsWidth50);
+        btn_d.setLayoutParams(layoutParamsWidth50);*/
 
         /**
          * Ustawianie tytułu oraz paneli
@@ -164,20 +171,9 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
-        if (savedInstanceState == null) {
-            selectItem(0);
-        }
 
         /** Ustawienie aktualnego czasu */
         now = Calendar.getInstance();
-
-        /** Ustawianie **/
-        TextView _currCash = (TextView) findViewById(R.id.prog_txt);
-        TextView _currQuestionCount = (TextView) findViewById(R.id.question_count);
-        TypedArray cash_array = getResources().obtainTypedArray(R.array.cash_array);
-
-        _currCash.setText(getResources().getString(R.string.cash) + " " + cash_array.getString(questionCount - 1));
-        _currQuestionCount.setText(getResources().getString(R.string.question_count) + " " + questionCount);
 
         /** Losowanie pytań */
         questionsData = new QuestionsData(getApplicationContext());
@@ -188,15 +184,25 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
      * Funkcja odpowiedzialna za ustawianie pytań
      */
     private void setQuestion() {
+        Log.i("Info", "setQuestion");
         if (questionCount == 10) {
             endGame("win");
         } else {
-        /* pobranie pytań */
+            /** Ustawianie **/
+            TextView _currCash = (TextView) findViewById(R.id.prog_txt);
+            TextView _currQuestionCount = (TextView) findViewById(R.id.question_count);
+            TypedArray cash_array = getResources().obtainTypedArray(R.array.cash_array);
+
+            _currCash.setText(getResources().getString(R.string.cash) + " " + cash_array.getString(questionCount - 1));
+            _currQuestionCount.setText(getResources().getString(R.string.question_count) + " " + questionCount);
+
+            /* pobranie pytań */
             question = questionsData.downloadQuestions(questionCount, tab_quest);
             String val = question.get("error");
             if (val != null) {
                 finish();
             } else {
+                onOrOffButton(true);
                 String poprawna_odp = question.get("poprawna");
                 tab_quest[questionCount - 1] = Integer.parseInt(question.get("id"));
 
@@ -212,6 +218,8 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             /** nasłuch na odpowiedzi */
             btn_a.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    onOrOffButton(false);
+                    btn_a.setBackgroundColor(getResources().getColor(R.color.btn_active));
                     if (!questionsData.checkAnswer(question, 0)) {
                         endGame("loss");
                     } else {
@@ -222,6 +230,8 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             });
             btn_b.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    onOrOffButton(false);
+                    btn_b.setBackgroundColor(getResources().getColor(R.color.btn_active));
                     if (!questionsData.checkAnswer(question, 1)) {
                         endGame("loss");
                     } else {
@@ -232,6 +242,8 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             });
             btn_c.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    onOrOffButton(false);
+                    btn_c.setBackgroundColor(getResources().getColor(R.color.btn_active));
                     if (!questionsData.checkAnswer(question, 2)) {
                         endGame("loss");
                     } else {
@@ -242,6 +254,8 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             });
             btn_d.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    onOrOffButton(false);
+                    btn_d.setBackgroundColor(getResources().getColor(R.color.btn_active));
                     if (!questionsData.checkAnswer(question, 3)) {
                         endGame("loss");
                     } else {
@@ -251,6 +265,21 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                 }
             });
         }
+    }
+
+    /**
+     * Funkcja do wyłączania buttonów
+     * @param on włączone/wyłączone
+     */
+    private void onOrOffButton(boolean on) {
+        btn_a.setClickable(on);
+        btn_a.setBackgroundColor(getResources().getColor(R.color.btn));
+        btn_b.setClickable(on);
+        btn_b.setBackgroundColor(getResources().getColor(R.color.btn));
+        btn_c.setClickable(on);
+        btn_c.setBackgroundColor(getResources().getColor(R.color.btn));
+        btn_d.setClickable(on);
+        btn_d.setBackgroundColor(getResources().getColor(R.color.btn));
     }
 
     /**
@@ -271,11 +300,11 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         }
 
         if (typ.equalsIgnoreCase("win")) {
-            Toast.makeText(getApplicationContext(), "Gratulacje! Wygrałeś główną nagrodę.", Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(), "Gratulacje! Wygrałeś główną nagrodę.", Toast.LENGTH_LONG).show();;
         } else if(typ.equalsIgnoreCase("loss")) {
-            Toast.makeText(getApplicationContext(), "Przegrałeś! Źle odpowiedziałeś na to pytanie.", Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(), "Przegrałeś! Źle odpowiedziałeś na to pytanie.", Toast.LENGTH_LONG).show();;
         } else if(typ.equalsIgnoreCase("end")) {
-            Toast.makeText(getApplicationContext(), "Wynik zapisany.", Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(), "Wynik zapisany.", Toast.LENGTH_LONG).show();;
         }
 
         Intent intent = new Intent(getApplicationContext(), RankingView.class);

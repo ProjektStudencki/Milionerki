@@ -87,10 +87,8 @@ import menu.ObjectDrawerItem;
             }
 
             _rankingText.setText(folder.nick + " " + folder.name);
-            if(folder.avatar.equals("1"))
-                _avatar.setImageResource(R.drawable.awatar_k1);
-            else
-                _avatar.setImageResource(R.drawable.awatar_k2);
+            TypedArray array_avatar = listItem.getResources().obtainTypedArray(R.array.array_avek);
+            _avatar.setImageResource(array_avatar.getResourceId(Integer.parseInt(folder.avatar), 0));
         } else if (folder.action == "profilView") {
             TextView _nick = (TextView) listItem.findViewById(R.id.textView1);
             ImageView _img = (ImageView) listItem.findViewById(R.id.imageView1);
@@ -103,7 +101,7 @@ import menu.ObjectDrawerItem;
             TextView textViewName = (TextView) listItem.findViewById(R.id.textViewName);
             textViewName.setText(folder.name);
         }
-				
+
 		return listItem;
 	}
 }

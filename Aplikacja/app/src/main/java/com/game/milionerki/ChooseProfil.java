@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.game.menu.DrawerItemCustomAdapter;
 import com.game.sql.sqlAdapter;
@@ -27,6 +28,7 @@ public class ChooseProfil extends Activity {
 
     private com.game.sql.sqlAdapter sqlAdapter;
     private ListView _body;
+    private boolean clicked = false;
     private int[] avatars;
 
     /**
@@ -146,13 +148,17 @@ public class ChooseProfil extends Activity {
          */
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            TextView _txt = (TextView) view.findViewById(R.id.textView1);
+            if (!clicked) {
+                Toast.makeText(getApplicationContext(), "Trwa ładowanie gry...", Toast.LENGTH_LONG).show();
+                clicked = true;
+                TextView _txt = (TextView) view.findViewById(R.id.textView1);
 
-            Intent intent = new Intent(getApplicationContext(), GameView.class);
-            intent.putExtra("profil", avatars[position]);
-            intent.putExtra("nick", _txt.getText().toString());
-            startActivity(intent);
-            finish();
+                Intent intent = new Intent(getApplicationContext(), GameView.class);
+                intent.putExtra("profil", avatars[position]);
+                intent.putExtra("nick", _txt.getText().toString());
+                startActivity(intent);
+                finish();
+            }
         }
     }
 
