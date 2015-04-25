@@ -108,4 +108,4 @@
         android:layout_alignLeft="@+id/surnameText"
         android:textColor="@color/fff" />
 
-</RelativeLayout><!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/layout/create_players_profil.xml -->
+</RelativeLayout><!-- From: file:/E:/Android%20Studio/workspace/Milionerki/Aplikacja/app/src/main/res/layout/create_players_profil.xml -->

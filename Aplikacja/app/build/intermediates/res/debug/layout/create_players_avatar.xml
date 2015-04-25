@@ -69,4 +69,4 @@
         android:layout_toLeftOf="@+id/imageView3"
         android:layout_alignBottom="@+id/imageView"
         android:src="@drawable/awatar_k1" />
-</RelativeLayout><!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/layout/create_players_avatar.xml -->
+</RelativeLayout><!-- From: file:/E:/Android%20Studio/workspace/Milionerki/Aplikacja/app/src/main/res/layout/create_players_avatar.xml -->

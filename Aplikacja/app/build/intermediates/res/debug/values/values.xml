@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/E:/Android%20Studio/workspace/Milionerki/Aplikacja/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="array_avek">
         <item>@drawable/awatar_k1</item>
@@ -10,13 +10,25 @@
         <item>@drawable/awatar_m2</item>
         <item>@drawable/awatar_m3</item>
     </string-array>
+    <string-array name="cash_array">
+        <item>100</item>
+        <item>250</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2500</item>
+        <item>7500</item>
+        <item>20000</item>
+        <item>35000</item>
+        <item>50000</item>
+        <item>100000</item>
+    </string-array>
     <string-array name="navigation_items_array">
         <item>Zrezygnuj</item>
         <item>Nowa gra</item>
         <item>Najlepsze wyniki</item>
         <item>O grze</item>
     </string-array>
-    <!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/E:/Android%20Studio/workspace/Milionerki/Aplikacja/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <color name="bg">#ff232d48</color>
     <color name="black">#ff000000</color>
@@ -29,11 +41,11 @@
     <color name="text">#ff8aacd8</color>
     <color name="title">#ffccf00c</color>
     <color name="txt_gold">#e2cd1f</color>
-    <!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/E:/Android%20Studio/workspace/Milionerki/Aplikacja/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/E:/Android%20Studio/workspace/Milionerki/Aplikacja/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_settings">Wyjdź</string>
     <string name="alert_yes_or_no">Czy na pewno chcesz wykonać ta akcję?</string>
@@ -51,6 +63,7 @@
     <string name="btn_game_info">O grze</string>
     <string name="btn_game_start">Rozpocznij grę</string>
     <string name="btn_game_wyniki">Najlepsze wyniki</string>
+    <string name="cash">Próg:</string>
     <string name="choose_avek">Wybierz avatar</string>
     <string name="choose_profil">Wybór profilu gracza</string>
     <string name="createBtn">Stwórz</string>
@@ -64,6 +77,7 @@
     <string name="newProfil">Nowy profil</string>
     <string name="next">Dalej</string>
     <string name="no">Nie</string>
+    <string name="question_count">Pytanie:</string>
     <string name="ranking_title">Najlepsze wyniki</string>
     <string name="success_create_profil">Założono konto!</string>
     <string name="text_autorzy">Damian Graczyk, Kamil Gammert, Konrad Barbasiewicz, Andrzej Pietrzak, Leszek Sierocki</string>
@@ -78,7 +92,7 @@
     <string name="title_system_rozgrywki">System rozgrywki</string>
     <string name="title_wersja">Wersja</string>
     <string name="yes">Tak</string>
-    <!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/E:/Android%20Studio/workspace/Milionerki/Aplikacja/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

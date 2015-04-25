@@ -9,21 +9,136 @@
         android:layout_height="match_parent"
         android:background="@color/bg" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/testNick"
-            android:layout_gravity="center"
-            android:textColor="@color/fff" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="left|top"
+            android:padding="10dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView2"
-            android:layout_gravity="center_horizontal|top"
-            android:src="@drawable/hubert" />
+            <Button
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:minHeight="70dp"
+                android:id="@+id/btn_c"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/fff" />
+
+            <Button
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:minHeight="70dp"
+                android:id="@+id/btn_d"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/btn_c"
+                android:textColor="@color/fff" />
+
+            <Button
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:minHeight="70dp"
+                android:id="@+id/btn_a"
+                android:layout_above="@+id/btn_c"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/fff" />
+
+            <Button
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:minHeight="70dp"
+                android:id="@+id/btn_b"
+                android:layout_alignTop="@+id/btn_a"
+                android:layout_toRightOf="@+id/btn_c"
+                android:textColor="@color/fff" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:layout_above="@+id/btn_a"
+                android:layout_alignLeft="@+id/btn_a"
+                android:background="@color/fff"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/relativeLayout2">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/question_txt"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/cash"
+                android:id="@+id/prog_txt"
+                android:layout_above="@+id/relativeLayout2"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/fff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/question_count"
+                android:id="@+id/question_count"
+                android:layout_above="@+id/relativeLayout2"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/fff" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/imageView2"
+                android:src="@drawable/hubert"
+                android:layout_alignLeft="@+id/prog_txt"
+                android:layout_alignTop="@+id/relativeLayout3"
+                android:layout_alignBottom="@+id/prog_txt" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/question_count"
+                android:layout_marginTop="5dp"
+                android:id="@+id/relativeLayout3">
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/kolo_50"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/kolo_5050"
+                    android:layout_marginRight="12dp" />
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/kolo_telefon"
+                    android:layout_alignTop="@+id/kolo_50"
+                    android:layout_toRightOf="@+id/kolo_50"
+                    android:src="@drawable/kolo_przyjaciel"
+                    android:layout_marginRight="12dp" />
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/kolo_publicznosc"
+                    android:layout_alignTop="@+id/kolo_50"
+                    android:layout_toRightOf="@+id/kolo_telefon"
+                    android:src="@drawable/kolo_publicznosc" />
+
+            </RelativeLayout>
+        </RelativeLayout>
     </FrameLayout>
 
     <ListView
@@ -36,4 +151,4 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp" />
 
-</android.support.v4.widget.DrawerLayout><!-- From: file:/C:/Users/kamil_000/AndroidstudioProjects/Milionerki/app/src/main/res/layout/game_view.xml -->
+</android.support.v4.widget.DrawerLayout><!-- From: file:/E:/Android%20Studio/workspace/Milionerki/Aplikacja/app/src/main/res/layout/game_view.xml -->

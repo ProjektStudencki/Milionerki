@@ -76,6 +76,7 @@ public class sqlAdapter {
                 "Czas_gry             float not null, " +
                 "Data_wpisu           date not null, " +
                 "Uzyskany_wynik       int not null, " +
+                "Avatar               int not null," +
                 "primary key (Nr_wyniku), " +
                 "FOREIGN KEY(Pseudonim) REFERENCES " + DB_USERS_TABLE + "(Pseudonim)" +
             ");";

@@ -28,8 +28,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.game.gameAction.QuestionsData;
+import com.game.gameAction.SaveResult;
 import com.game.menu.DrawerItemCustomAdapter;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,7 +60,9 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     private int cash = 0;
 
     private int profil = 0;
-    private Time now;
+    private Calendar now;
+
+    private String nick = "";
 
     /**
      * Stworzenie widoku gry
@@ -80,7 +84,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         Intent intents = getIntent();
         if (intents != null) {
             profil = intents.getIntExtra("profil", 0);
-            final String nick = intents.getStringExtra("nick");
+            nick = intents.getStringExtra("nick");
 
             questionCount = 1;
         }
@@ -155,15 +159,14 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         }
 
         /** Ustawienie aktualnego czasu */
-        Time now = new Time(Time.getCurrentTimezone());
-        now.setToNow();
+        now = Calendar.getInstance();
 
         /** Ustawianie **/
         TextView _currCash = (TextView) findViewById(R.id.prog_txt);
         TextView _currQuestionCount = (TextView) findViewById(R.id.question_count);
         TypedArray cash_array = getResources().obtainTypedArray(R.array.cash_array);
 
-        _currCash.setText(getResources().getString(R.string.cash) + " " + cash_array.getResourceId(questionCount - 1, 0));
+        _currCash.setText(getResources().getString(R.string.cash) + " " + cash_array.getString(questionCount - 1));
         _currQuestionCount.setText(getResources().getString(R.string.question_count) + " " + questionCount);
 
         /** Losowanie pytań */
@@ -295,6 +298,16 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             dialogBuilder.setView(getCustomDialogLayout(position));
             alert = dialogBuilder.create();
             alert.show();
+        } else {
+            TypedArray cash_array = getResources().obtainTypedArray(R.array.cash_array);
+            String val = cash_array.getString(questionCount - 1);
+            int cash = Integer.parseInt(val);
+
+            Calendar end = Calendar.getInstance();
+            float timeGame = (float)(end.getTimeInMillis() - now.getTimeInMillis());
+
+            SaveResult save = new SaveResult();
+            save.saveReuslt(getApplicationContext(), nick, cash, timeGame, profil);
         }
     }
 

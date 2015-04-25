@@ -27,6 +27,7 @@ public class ChooseProfil extends Activity {
 
     private com.game.sql.sqlAdapter sqlAdapter;
     private ListView _body;
+    private int[] avatars;
 
     /**
      * Funkcja tworząca widok, generowana domyślnie
@@ -72,6 +73,7 @@ public class ChooseProfil extends Activity {
         Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_USERS_TABLE);
 
         int count = data.getCount();
+        avatars = new int[count];
         ObjectDrawerItem[] profilObject = new ObjectDrawerItem[count];
 
         int i = 0;
@@ -81,6 +83,7 @@ public class ChooseProfil extends Activity {
                 String avatar = data.getString(1);
 
                 profilObject[i] = new ObjectDrawerItem("profilView", R.layout.profil_row, name, avatar);
+                avatars[i] = Integer.parseInt(avatar);
                 i++;
             }
 
@@ -146,7 +149,7 @@ public class ChooseProfil extends Activity {
             TextView _txt = (TextView) view.findViewById(R.id.textView1);
 
             Intent intent = new Intent(getApplicationContext(), GameView.class);
-            intent.putExtra("profil", position);
+            intent.putExtra("profil", avatars[position]);
             intent.putExtra("nick", _txt.getText().toString());
             startActivity(intent);
             finish();

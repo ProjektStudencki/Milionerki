@@ -40,11 +40,10 @@ public class SaveResult {
      * @param nick nick Nazwa gracza, który uzyskał wynik
      * @param result Uzyskany wynik w grze
      */
-	public void saveReuslt(Context context, String nick, int result) {
+	public void saveReuslt(Context context, String nick, int result, float time, int avatar) {
 		sqlAdapter = new sqlAdapter(context);
         sqlAdapter.open();
 
-        float time = 25;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(new Date());
 
@@ -62,6 +61,7 @@ public class SaveResult {
         newTodoValues.put("Czas_gry", time);
         newTodoValues.put("Data_wpisu", date);
         newTodoValues.put("Uzyskany_wynik", result);
+        newTodoValues.put("Avatar", avatar);
 
         sqlAdapter.insertTodo(newTodoValues, sqlAdapter.DB_RESULTS_TABLE);
         sqlAdapter.close();
