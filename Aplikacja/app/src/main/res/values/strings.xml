@@ -55,6 +55,9 @@
         <item>@drawable/awatar_m3</item>
     </string-array>
 
+    <string name="error_no_nick">Nie wpisałeś pseudonimu. Uzupełnij dane.</string>
+    <string name="error_long">może mieć maksymalnie 25 znaków.</string>
+
     <!-- MENU -->
     <string name="drawer_open">Aktywne menu</string>
     <string name="drawer_close">Zamknięte menu</string>

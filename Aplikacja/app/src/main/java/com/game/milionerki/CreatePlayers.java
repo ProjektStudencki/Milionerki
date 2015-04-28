@@ -66,46 +66,70 @@ public class CreatePlayers extends Activity {
                 EditText _surname = (EditText) findViewById(R.id.surnameText);
                 EditText _nick = (EditText) findViewById(R.id.nickText);
 
-                String name = _name.getText().toString();
-                String surname = _surname.getText().toString();
-                String nick = _nick.getText().toString();
+                String name = _name.getText().toString().trim();
+                String surname = _surname.getText().toString().trim();
+                String nick = _nick.getText().toString().trim();
 
                 String _nameTmp = "";
+                String alert = "";
                 Boolean error = false;
 
-                sqlAdapter = new sqlAdapter(getApplicationContext());
-                sqlAdapter.open();
 
-                String[] kolumny = { "Pseudonim", "Imie_gracza", "Nazwisko_gracza" };
-                Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_USERS_TABLE);
-                while (data.moveToNext()) {
-                    _nameTmp = data.getString(0);
+                if (nick.length() == 0) {
+                    error = true;
+                    alert += getApplicationContext().getString(R.string.error_no_nick) + " " + getApplicationContext().getString(R.string.error_long) + "\n";
+                }
 
-                    if (_nameTmp.equalsIgnoreCase(name)) {
-                        error = true;
+                if (name.length() > 25) {
+                    error = true;
+                    alert += getApplicationContext().getString(R.string.create_profil_name) + " " + getApplicationContext().getString(R.string.error_long) + "\n";
+                }
+                if (surname.length() > 25) {
+                    error = true;
+                    alert += getApplicationContext().getString(R.string.create_profil_srunname) + " " + getApplicationContext().getString(R.string.error_long) + "\n";
+                }
+                if (nick.length() > 25) {
+                    error = true;
+                    alert += getApplicationContext().getString(R.string.create_profil_nick) + " " + getApplicationContext().getString(R.string.error_long);
+                }
+
+                if (!error) {
+                    sqlAdapter = new sqlAdapter(getApplicationContext());
+                    sqlAdapter.open();
+
+                    String[] kolumny = {"Pseudonim", "Imie_gracza", "Nazwisko_gracza"};
+                    Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_USERS_TABLE);
+                    while (data.moveToNext()) {
+                        _nameTmp = data.getString(0);
+
+                        if (_nameTmp.equalsIgnoreCase(name)) {
+                            error = true;
+                        }
                     }
-                }
 
-                if (error) {
-                    Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_create), Toast.LENGTH_SHORT).show();
+                    if (error) {
+                        Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_create), Toast.LENGTH_SHORT).show();
+                    } else {
+                        ContentValues newTodoValuess = new ContentValues();
+                        newTodoValuess.put("Pseudonim", nick);
+                        newTodoValuess.put("Imie_gracza", name);
+                        newTodoValuess.put("Nazwisko_gracza", surname);
+                        newTodoValuess.put("Avatar", selectedAvatar);
+
+                        sqlAdapter.insertTodo(newTodoValuess, sqlAdapter.DB_USERS_TABLE);
+
+                        Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.success_create_profil), Toast.LENGTH_LONG).show();
+                    }
+
+                    sqlAdapter.close();
+
+                    //powrót do głównego menu
+                    Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                    startActivity(intent);
+                    finish();
                 } else {
-                    ContentValues newTodoValuess = new ContentValues();
-                    newTodoValuess.put("Pseudonim", nick);
-                    newTodoValuess.put("Imie_gracza", name);
-                    newTodoValuess.put("Nazwisko_gracza", surname);
-                    newTodoValuess.put("Avatar", selectedAvatar);
-
-                    sqlAdapter.insertTodo(newTodoValuess, sqlAdapter.DB_USERS_TABLE);
-
-                    Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.success_create_profil), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), alert, Toast.LENGTH_LONG).show();
                 }
-
-                sqlAdapter.close();
-
-                //powrót do głównego menu
-                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
     }
