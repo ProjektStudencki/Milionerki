@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -34,6 +35,7 @@ import android.widget.Toast;
 import com.game.gameAction.QuestionsData;
 import com.game.gameAction.SaveResult;
 import com.game.menu.DrawerItemCustomAdapter;
+import com.game.sql.sqlAdapter;
 
 import org.w3c.dom.Text;
 
@@ -110,6 +112,8 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         btn_c = (Button) findViewById(R.id.btn_c);
         btn_d = (Button) findViewById(R.id.btn_d);
         onOrOffButton(true);
+
+        sqlAdapter = new com.game.sql.sqlAdapter(getApplicationContext());
 
         /**
          * Odebranie danych z wyboru profilu
@@ -192,6 +196,15 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                 } else Toast.makeText(getApplicationContext(), getString(R.string.error_used_yet), Toast.LENGTH_LONG).show();
             }
         });
+        kolo_przyjaciel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (usedHelp[1] == 0) {
+                    helpFriend();
+                    usedHelp[1] = 1;
+                    kolo_przyjaciel.setImageResource(R.drawable.kolo_przyjaciel_skr);
+                } else Toast.makeText(getApplicationContext(), getString(R.string.error_used_yet), Toast.LENGTH_LONG).show();
+            }
+        });
 
         /** Ustawienie aktualnego czasu */
         now = Calendar.getInstance();
@@ -240,6 +253,147 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             }
         } while(count < 2);
 
+    }
+
+    /**
+     * Funkcja odpowiedzialna za koło do przyjaciela
+     */
+    private void helpFriend() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle(R.string.dialog_alert_friend).setView(getCustomDialogLayoutFreind());
+        alert = dialogBuilder.create();
+        alert.show();
+    }
+
+    /**
+     * Funkcja odpowiedzialna za działanie koła do przyjaciela
+     * @return wygląd
+     */
+    private View getCustomDialogLayoutFreind() {
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.help_dialog_friend, (ViewGroup) this.findViewById(R.id.layout_root));
+
+        TypedArray name_array = getResources().obtainTypedArray(R.array.name_friend);
+        Random r = new Random();
+        int name_rand = r.nextInt(name_array.length());
+        String name = name_array.getString(name_rand);
+
+        /**
+         * Losowanie tekstu
+         */
+        int max = 100;
+        int min = 0;
+
+        r = new Random();
+        int rand = r.nextInt(max - min + 1) + min;
+
+        int level = 3;
+        if (rand < 20) {
+            level = 1;
+        } else if (rand < 50) {
+            level = 2;
+        }
+
+        sqlAdapter.open();
+
+        String[] kolumny = { "Tekst_przyjaciela" };
+        Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_TEXTS_FRIEND_TABLE, "Prawdopodobiensto_wypadniecia = " + level);
+        int total = data.getCount() - 1;
+
+        r = new Random();
+        int chooseText = r.nextInt(total + 1);
+
+        data.moveToPosition(chooseText);
+        String text_friend = data.getString(0);
+
+        sqlAdapter.close();
+
+        String text_1 = getApplicationContext().getString(R.string.hello) + " " + name + ", " + getApplicationContext().getString(R.string.text_hello);
+        TextView _text_1 = (TextView) layout.findViewById(R.id.text_1);
+        _text_1.setText(text_1);
+
+        TextView _text_3 = (TextView) layout.findViewById(R.id.text_3);
+        _text_3.setText(text_friend);
+
+        Button a = (Button) layout.findViewById(R.id.button);
+        Button b = (Button) layout.findViewById(R.id.button2);
+        Button c = (Button) layout.findViewById(R.id.button3);
+        Button d = (Button) layout.findViewById(R.id.button4);
+
+        a.setClickable(false);
+        a.setBackgroundColor(getResources().getColor(R.color.btn));
+        b.setClickable(false);
+        b.setBackgroundColor(getResources().getColor(R.color.btn));
+        c.setClickable(false);
+        c.setBackgroundColor(getResources().getColor(R.color.btn));
+        d.setClickable(false);
+        d.setBackgroundColor(getResources().getColor(R.color.btn));
+
+        String text_2 = question.get("pytanie") + "\n";
+        int counts = 0;
+
+        if (!odp_50[0].equalsIgnoreCase("odp_0") && !odp_50[1].equalsIgnoreCase("odp_0")) {
+            text_2 += "A: " + question.get("odp_0") + " ";
+            counts++;
+        } else a.setVisibility(View.INVISIBLE);
+        if (!odp_50[0].equalsIgnoreCase("odp_1") && !odp_50[1].equalsIgnoreCase("odp_1")) {
+            text_2 += "B: " + question.get("odp_1") + " ";
+            counts++;
+            if (counts == 2) text_2 += "\n";
+        } else b.setVisibility(View.INVISIBLE);
+        if (!odp_50[0].equalsIgnoreCase("odp_2") && !odp_50[1].equalsIgnoreCase("odp_2")) {
+            text_2 += "C: " + question.get("odp_2") + " ";
+            counts++;
+            if (counts == 2) text_2 += "\n";
+        } else c.setVisibility(View.INVISIBLE);
+        if (!odp_50[0].equalsIgnoreCase("odp_3") && !odp_50[1].equalsIgnoreCase("odp_3")) {
+            text_2 += "D: " + question.get("odp_3") + " ";
+            counts++;
+            if (counts == 2) text_2 += "\n";
+        } else d.setVisibility(View.INVISIBLE);
+
+        TextView _text_2 = (TextView) layout.findViewById(R.id.text_2);
+        _text_2.setText(text_2);
+
+        max = 100;
+        min = 0;
+
+        r = new Random();
+        rand = r.nextInt(max - min + 1) + min;
+
+        if (rand <= 60) {
+            if (question.get("poprawna").equalsIgnoreCase("odp_0"))
+                a.setBackgroundColor(getResources().getColor(R.color.btn_active));
+            else if (question.get("poprawna").equalsIgnoreCase("odp_1"))
+                b.setBackgroundColor(getResources().getColor(R.color.btn_active));
+            else if (question.get("poprawna").equalsIgnoreCase("odp_2"))
+                c.setBackgroundColor(getResources().getColor(R.color.btn_active));
+            else if (question.get("poprawna").equalsIgnoreCase("odp_3"))
+                d.setBackgroundColor(getResources().getColor(R.color.btn_active));
+        } else {
+            boolean exit = false;
+            do {
+                r = new Random();
+                int _rand = r.nextInt(4);
+                String _rands = "odp_" + _rand;
+
+                if (!_rands.equalsIgnoreCase(question.get("poprawna")) && !_rands.equalsIgnoreCase(odp_50[0]) && !_rands.equalsIgnoreCase(odp_50[1])) {
+                    exit = true;
+
+                    if (_rands.equalsIgnoreCase("odp_0"))
+                        a.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                    else if (_rands.equalsIgnoreCase("odp_1"))
+                        b.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                    else if (_rands.equalsIgnoreCase("odp_2"))
+                        c.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                    else if (_rands.equalsIgnoreCase("odp_3"))
+                        d.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                }
+
+            } while(!exit);
+        }
+
+        return layout;
     }
 
     /**

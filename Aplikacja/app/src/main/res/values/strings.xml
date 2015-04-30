@@ -91,6 +91,20 @@
         <item>100000</item>
     </string-array>
 
+    <string-array name="name_friend">
+        <item>Kamil</item>
+        <item>Piotr</item>
+        <item>Leszek</item>
+        <item>Andrzej</item>
+        <item>Konrad</item>
+        <item>Damian</item>
+    </string-array>
+
+    <string name="dialog_alert_friend">TELEFON DO PRZYJACIELA</string>
+    <string name="dialog_alert_audience">PYTANIE DO PUBLICZNOŚCI</string>
     <string name="error_used_yet">Już skorzystałeś z tego koła.</string>
+
+    <string name="hello">Cześć</string>
+    <string name="text_hello">mam pytanie.</string>
 
 </resources>
