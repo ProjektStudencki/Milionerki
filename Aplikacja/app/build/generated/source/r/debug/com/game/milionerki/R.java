@@ -167,19 +167,21 @@ public final class R {
         public static final int drawer_close=0x7f070018;
         public static final int drawer_open=0x7f070019;
         public static final int error_create=0x7f07001a;
-        public static final int newProfil=0x7f07001b;
-        public static final int next=0x7f07001c;
-        public static final int no=0x7f07001d;
-        public static final int question_count=0x7f07001e;
-        public static final int ranking_title=0x7f07001f;
-        public static final int success_create_profil=0x7f070020;
-        public static final int text_autorzy=0x7f070021;
-        public static final int text_system_rozgrywki=0x7f070022;
-        public static final int text_wersja=0x7f070023;
-        public static final int title_autorzy=0x7f070024;
-        public static final int title_system_rozgrywki=0x7f070025;
-        public static final int title_wersja=0x7f070026;
-        public static final int yes=0x7f070027;
+        public static final int error_long=0x7f07001b;
+        public static final int error_no_nick=0x7f07001c;
+        public static final int newProfil=0x7f07001d;
+        public static final int next=0x7f07001e;
+        public static final int no=0x7f07001f;
+        public static final int question_count=0x7f070020;
+        public static final int ranking_title=0x7f070021;
+        public static final int success_create_profil=0x7f070022;
+        public static final int text_autorzy=0x7f070023;
+        public static final int text_system_rozgrywki=0x7f070024;
+        public static final int text_wersja=0x7f070025;
+        public static final int title_autorzy=0x7f070026;
+        public static final int title_system_rozgrywki=0x7f070027;
+        public static final int title_wersja=0x7f070028;
+        public static final int yes=0x7f070029;
     }
     public static final class style {
         /** 

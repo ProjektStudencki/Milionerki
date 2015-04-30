@@ -205,6 +205,16 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                 } else Toast.makeText(getApplicationContext(), getString(R.string.error_used_yet), Toast.LENGTH_LONG).show();
             }
         });
+        kolo_publicznosc.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (usedHelp[2] == 0) {
+                    helpAudience();
+                    usedHelp[2] = 1;
+                    kolo_publicznosc.setImageResource(R.drawable.kolo_publicznosc_skr);
+                } else
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_used_yet), Toast.LENGTH_LONG).show();
+            }
+        });
 
         /** Ustawienie aktualnego czasu */
         now = Calendar.getInstance();
@@ -391,6 +401,175 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                 }
 
             } while(!exit);
+        }
+
+        return layout;
+    }
+
+    /**
+     * Funkcja odpowiedzialna za koło do publiczności
+     */
+    private void helpAudience() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle(R.string.dialog_alert_audience).setView(getCustomDialogLayoutAudience());
+        alert = dialogBuilder.create();
+        alert.show();
+    }
+
+    /**
+     * Funkcja odpowiedzialna za działanie koła do publiczności
+     * @return widok
+     */
+    private View getCustomDialogLayoutAudience() {
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.help_dialog_audience, (ViewGroup) this.findViewById(R.id.layout_root));
+
+        TextView question_txt = (TextView) layout.findViewById(R.id.textView14);
+        question_txt.setText(question.get("pytanie"));
+
+        String[] nameOdp = new String[] { "odp_0", "odp_1", "odp_2", "odp_3" };
+        String poprawna_odp = question.get("poprawna");
+
+        int max = 100;
+        int min = 0;
+
+        Random r = new Random();
+        int rand = r.nextInt(max - min + 1) + min;
+
+        ProgressBar odp_a = (ProgressBar) layout.findViewById(R.id.progressBar_1);
+        ProgressBar odp_b = (ProgressBar) layout.findViewById(R.id.progressBar);
+        ProgressBar odp_c = (ProgressBar) layout.findViewById(R.id.progressBar2);
+        ProgressBar odp_d = (ProgressBar) layout.findViewById(R.id.progressBar3);
+
+        TextView odp_a_prc = (TextView) layout.findViewById(R.id.prc_1);
+        TextView odp_b_prc = (TextView) layout.findViewById(R.id.textView8);
+        TextView odp_c_prc = (TextView) layout.findViewById(R.id.textView9);
+        TextView odp_d_prc = (TextView) layout.findViewById(R.id.textView13);
+
+        if (rand <= 65) {
+            int count = 0;
+            int total = 0;
+            int total_odp = 4;
+            if (!odp_50[0].equalsIgnoreCase("")) {
+                total_odp = 2;
+            }
+            max = (int)((100 - 1) / total_odp);
+            do {
+                int _rand_val = r.nextInt(max - min + 1) + min;
+
+                if (nameOdp[count].equalsIgnoreCase(poprawna_odp))
+                    count++;
+
+                if (count < 4) {
+                    boolean error = true;
+                    do {
+                        error = false;
+                        if (nameOdp[count].equalsIgnoreCase("odp_0") && (odp_50[0].equalsIgnoreCase("odp_0") || odp_50[1].equalsIgnoreCase("odp_0"))) {
+                            count++;
+                            error = true;
+                        } else if (nameOdp[count].equalsIgnoreCase("odp_1") && (odp_50[0].equalsIgnoreCase("odp_1") || odp_50[1].equalsIgnoreCase("odp_1"))) {
+                            count++;
+                            error = true;
+                        } else if (nameOdp[count].equalsIgnoreCase("odp_2") && (odp_50[0].equalsIgnoreCase("odp_2") || odp_50[1].equalsIgnoreCase("odp_2"))) {
+                            count++;
+                            error = true;
+                        } else if (nameOdp[count].equalsIgnoreCase("odp_3") && (odp_50[0].equalsIgnoreCase("odp_3") || odp_50[1].equalsIgnoreCase("odp_3"))) {
+                            count++;
+                            error = true;
+                        }
+                    } while (error);
+
+                    if (nameOdp[count].equalsIgnoreCase("odp_0")) {
+                        odp_a.setProgress(_rand_val);
+                        odp_a_prc.setText(_rand_val + "%");
+                        total += _rand_val;
+                    } else if (nameOdp[count].equalsIgnoreCase("odp_1")) {
+                        odp_b.setProgress(_rand_val);
+                        odp_b_prc.setText(_rand_val + "%");
+                        total += _rand_val;
+                    } else if (nameOdp[count].equalsIgnoreCase("odp_2")) {
+                        odp_c.setProgress(_rand_val);
+                        odp_c_prc.setText(_rand_val + "%");
+                        total += _rand_val;
+                    } else if (nameOdp[count].equalsIgnoreCase("odp_3")) {
+                        odp_d.setProgress(_rand_val);
+                        odp_d_prc.setText(_rand_val + "%");
+                        total += _rand_val;
+                    }
+                }
+                count++;
+            } while(count < 4);
+
+            if (poprawna_odp.equalsIgnoreCase("odp_0")) {
+                odp_a.setProgress(100 - total);
+                odp_a_prc.setText((100 - total)+"%");
+            } else if (poprawna_odp.equalsIgnoreCase("odp_1")) {
+                odp_b.setProgress(100 - total);
+                odp_b_prc.setText((100 - total)+"%");
+            } else if (poprawna_odp.equalsIgnoreCase("odp_2")) {
+                odp_c.setProgress(100 - total);
+                odp_c_prc.setText((100 - total)+"%");
+            } else if (poprawna_odp.equalsIgnoreCase("odp_3")) {
+                odp_d.setProgress(100 - total);
+                odp_d_prc.setText((100 - total)+"%");
+            }
+
+
+        } else {
+            int count = 0;
+            int total = 0;
+            int total_odp = 4;
+            if (!odp_50[0].equalsIgnoreCase("")) {
+                total_odp = 2;
+            }
+            max = 100;
+            do {
+                int _rand_val = 0;
+                boolean error = true;
+                do {
+                    error = false;
+                    if (nameOdp[count].equalsIgnoreCase("odp_0") && (odp_50[0].equalsIgnoreCase("odp_0") || odp_50[1].equalsIgnoreCase("odp_0"))) {
+                        count++;
+                        error = true;
+                    } else if (nameOdp[count].equalsIgnoreCase("odp_1") && (odp_50[0].equalsIgnoreCase("odp_1") || odp_50[1].equalsIgnoreCase("odp_1"))) {
+                        count++;
+                        error = true;
+                    } else if (nameOdp[count].equalsIgnoreCase("odp_2") && (odp_50[0].equalsIgnoreCase("odp_2") || odp_50[1].equalsIgnoreCase("odp_2"))) {
+                        count++;
+                        error = true;
+                    } else if (nameOdp[count].equalsIgnoreCase("odp_3") && (odp_50[0].equalsIgnoreCase("odp_3") || odp_50[1].equalsIgnoreCase("odp_3"))) {
+                        count++;
+                        error = true;
+                    }
+                } while(error);
+
+                if (count < 3) {
+                    _rand_val = r.nextInt(max - min + 1) + min;
+                    max -= _rand_val;
+                } else {
+                    _rand_val = max;
+                }
+
+                if (nameOdp[count].equalsIgnoreCase("odp_0")) {
+                    odp_a.setProgress(_rand_val);
+                    odp_a_prc.setText(_rand_val+"%");
+                }
+                else if (nameOdp[count].equalsIgnoreCase("odp_1")) {
+                    odp_b.setProgress(_rand_val);
+                    odp_b_prc.setText(_rand_val+"%");
+                }
+                else if (nameOdp[count].equalsIgnoreCase("odp_2")) {
+                    odp_c.setProgress(_rand_val);
+                    odp_c_prc.setText(_rand_val+"%");
+                }
+                else if (nameOdp[count].equalsIgnoreCase("odp_3")) {
+                    odp_d.setProgress(_rand_val);
+                    odp_d_prc.setText(_rand_val+"%");
+                }
+                count++;
+
+            } while(count < 4);
+
         }
 
         return layout;
