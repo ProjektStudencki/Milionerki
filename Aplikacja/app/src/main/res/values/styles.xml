@@ -33,5 +33,6 @@
 
     <color name="btn">#ff66c9e2</color>
     <color name="btn_active">#ff4fe243</color>
+    <color name="btn_choose">#b8b8b8</color>
     
 </resources>

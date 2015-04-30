@@ -91,6 +91,9 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     private int[] usedHelp = new int[] { 0, 0, 0 };
     private String[] odp_50 = new String[2];
 
+    private boolean textCurr = false;
+    private int randText = 0;
+
     /**
      * Stworzenie widoku gry
      *
@@ -241,6 +244,8 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     private View randTextLeading() {
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.dialog_alert_text_leading, (ViewGroup) this.findViewById(R.id.layout_root));
+
+        textCurr = true;
 
         int max = 100;
         int min = 0;
@@ -630,10 +635,10 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
      * Funkcja odpowiedzialna za ustawianie pytań
      */
     private void setQuestion() {
-        Log.i("Info", "setQuestion");
-        if (questionCount == 10) {
+        if (questionCount > 10) {
             endGame("win");
         } else {
+            textCurr = false;
             for (int i = 0; i < 2; i++) {
                 odp_50[i] = "";
             }
@@ -665,56 +670,93 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                 btn_d.setText(question.get("odp_3"));
             }
 
+            Random r = new Random();
+            randText = r.nextInt(100);
+
             /** nasłuch na odpowiedzi */
             btn_a.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    onOrOffButton(false);
-                    btn_a.setBackgroundColor(getResources().getColor(R.color.btn_active));
-                    if (!questionsData.checkAnswer(question, 0)) {
-                        endGame("loss");
+                    randomText();
+                    if (randText <= 80) {
+                        btn_a.setBackgroundColor(getResources().getColor(R.color.btn_choose));
+                        textLeading();
                     } else {
-                        questionCount++;
-                        setQuestion();
+                        onOrOffButton(false);
+                        btn_a.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                        if (!questionsData.checkAnswer(question, 0)) {
+                            endGame("loss");
+                        } else {
+                            questionCount++;
+                            setQuestion();
+                        }
                     }
                 }
             });
             btn_b.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    onOrOffButton(false);
-                    btn_b.setBackgroundColor(getResources().getColor(R.color.btn_active));
-                    if (!questionsData.checkAnswer(question, 1)) {
-                        endGame("loss");
+                    randomText();
+                    if (randText <= 80) {
+                        btn_b.setBackgroundColor(getResources().getColor(R.color.btn_choose));
+                        textLeading();
                     } else {
-                        questionCount++;
-                        setQuestion();
+                        onOrOffButton(false);
+                        btn_b.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                        if (!questionsData.checkAnswer(question, 1)) {
+                            endGame("loss");
+                        } else {
+                            questionCount++;
+                            setQuestion();
+                        }
                     }
                 }
             });
             btn_c.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    onOrOffButton(false);
-                    btn_c.setBackgroundColor(getResources().getColor(R.color.btn_active));
-                    if (!questionsData.checkAnswer(question, 2)) {
-                        endGame("loss");
+                    randomText();
+                    if (randText <= 80) {
+                        btn_c.setBackgroundColor(getResources().getColor(R.color.btn_choose));
+                        textLeading();
                     } else {
-                        questionCount++;
-                        setQuestion();
+                        onOrOffButton(false);
+                        btn_c.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                        if (!questionsData.checkAnswer(question, 2)) {
+                            endGame("loss");
+                        } else {
+                            questionCount++;
+                            setQuestion();
+                        }
                     }
                 }
             });
             btn_d.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    onOrOffButton(false);
-                    btn_d.setBackgroundColor(getResources().getColor(R.color.btn_active));
-                    if (!questionsData.checkAnswer(question, 3)) {
-                        endGame("loss");
+                    randomText();
+                    if (randText <= 80) {
+                        btn_d.setBackgroundColor(getResources().getColor(R.color.btn_choose));
+                        textLeading();
                     } else {
-                        questionCount++;
-                        setQuestion();
+                        onOrOffButton(false);
+                        btn_d.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                        if (!questionsData.checkAnswer(question, 3)) {
+                            endGame("loss");
+                        } else {
+                            questionCount++;
+                            setQuestion();
+                        }
                     }
                 }
             });
         }
+    }
+
+    /**
+     * Funkcja odpowiedzialna za losowanie
+     */
+    private void randomText() {
+        Random r = new Random();
+        randText = r.nextInt(100);
+
+        if (textCurr) randText = 100;
     }
 
     /**
