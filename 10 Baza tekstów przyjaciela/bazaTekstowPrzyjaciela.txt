@@ -1,3 +1,5 @@
 ﻿text_friends_value[0] = new String[]{"Chyba znam odpowiedź", "3"};
 text_friends_value[1] = new String[]{"Możliwe, że jest to:", "2"};
 text_friends_value[2] = new String[]{"Chyba:", "1"};
+text_friends_value[3] = new String[]{"Nie mam pewności. Chyba:", "2"};
+text_friends_value[4] = new String[]{"W moim przekonaniu jest to:", "2"};
