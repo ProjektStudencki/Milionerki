@@ -58,7 +58,7 @@
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_above="@+id/btn_a"
                 android:layout_alignLeft="@+id/btn_a"
                 android:background="@color/fff"
@@ -106,7 +106,7 @@
                 android:src="@drawable/hubert"
                 android:layout_alignLeft="@+id/prog_txt"
                 android:layout_alignTop="@+id/relativeLayout3"
-                android:layout_alignBottom="@+id/prog_txt" />
+                android:layout_above="@+id/prog_txt" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
