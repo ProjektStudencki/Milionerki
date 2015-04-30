@@ -258,7 +258,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         sqlAdapter.open();
 
         String[] kolumny = { "Tekst_prowadzacego" };
-        Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_TEXTS_LED_TABLE, "Prawdopodobiensto_wypadniecia = " + level);
+        Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_TEXTS_LED_TABLE, "Prawdopodobienstwo_wypadniecia = " + level);
         int total = data.getCount() - 1;
 
         r = new Random();
@@ -358,7 +358,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         sqlAdapter.open();
 
         String[] kolumny = { "Tekst_przyjaciela" };
-        Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_TEXTS_FRIEND_TABLE, "Prawdopodobiensto_wypadniecia = " + level);
+        Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_TEXTS_FRIEND_TABLE, "Prawdopodobienstwo_wypadniecia = " + level);
         int total = data.getCount() - 1;
 
         r = new Random();

@@ -20,7 +20,7 @@ import java.lang.Integer;
 public class sqlAdapter {
     private static final String DEBUG_TAG = "Baza danych";
 
-    private static final int DB_VERSION = 4;
+    private static final int DB_VERSION = 8;
 
     private static final String DB_NAME = "milionerkiGame.db";
     public static final String DB_USERS_TABLE = "Gracze";
@@ -55,18 +55,18 @@ public class sqlAdapter {
 
     private static final String DB_CREATE_TEXTS_LED_TABLE =
             "CREATE TABLE " + DB_TEXTS_LED_TABLE + "( " +
-                    "ID_tekstu            INTEGER(3) PRIMARY KEY, " +
+                    "ID_tekstu            INTEGER PRIMARY KEY, " +
                     "Tekst_prowadzacego   text not null, " +
-                    "Prawdopodobiensto_wypadniecia Integer(3) not null " +
+                    "Prawdopodobienstwo_wypadniecia INTEGER not null " +
                     ");";
     private static final String DROP_TEXTS_LED_TABLE =
             "DROP TABLE IF EXISTS " + DB_TEXTS_LED_TABLE;
 
     private static final String DB_CREATE_TEXTS_FRIEND_TABLE =
             "CREATE TABLE " + DB_TEXTS_FRIEND_TABLE + "( " +
-                    "ID_tesktu            INTEGER(3) PRIMARY KEY, " +
+                    "ID_tekstu            INTEGER PRIMARY KEY, " +
                     "Tekst_przyjaciela    text not null, " +
-                    "Prawdopodobienstwo_wypadniecia Integer(3) not null "+
+                    "Prawdopodobienstwo_wypadniecia INTEGER not null "+
                     ");";
     private static final String DROP_TEXTS_FRIEND_TABLE =
             "DROP TABLE IF EXISTS " + DB_TEXTS_FRIEND_TABLE;
@@ -194,9 +194,9 @@ public class sqlAdapter {
                     String[] val = text_leading_value[i];
 
                     ContentValues values = new ContentValues();
-                    values.put("ID_tesktu", i + 1);
+                    values.put("ID_tekstu", i + 1);
                     values.put("Tekst_prowadzacego", val[0]);
-                    values.put("Prawdopodobiensto_wypadniecia", val[1]);
+                    values.put("Prawdopodobienstwo_wypadniecia", val[1]);
                     db.insert(DB_TEXTS_LED_TABLE, null, values);
                 }
             } catch (Exception error) {
@@ -215,9 +215,9 @@ public class sqlAdapter {
                     String[] val = text_friends_value[i];
 
                     ContentValues values = new ContentValues();
-                    values.put("ID_tesktu", i + 1);
+                    values.put("ID_tekstu", i + 1);
                     values.put("Tekst_przyjaciela", val[0]);
-                    values.put("Prawdopodobiensto_wypadniecia", val[1]);
+                    values.put("Prawdopodobienstwo_wypadniecia", val[1]);
                     db.insert(DB_TEXTS_FRIEND_TABLE, null, values);
                 }
             } catch (Exception error) {
