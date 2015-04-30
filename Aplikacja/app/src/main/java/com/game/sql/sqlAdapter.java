@@ -19,8 +19,8 @@ import java.lang.Integer;
  */
 public class sqlAdapter {
     private static final String DEBUG_TAG = "Baza danych";
- 
-    private static final int DB_VERSION = 3;
+
+    private static final int DB_VERSION = 4;
 
     private static final String DB_NAME = "milionerkiGame.db";
     public static final String DB_USERS_TABLE = "Gracze";
@@ -28,60 +28,60 @@ public class sqlAdapter {
     public static final String DB_TEXTS_LED_TABLE = "TekstyProwadzacego";
     public static final String DB_TEXTS_FRIEND_TABLE = "TekstyPrzyjacielaDoKtoregoDzwonimy";
     public static final String DB_RESULTS_TABLE = "WynikiGraczy";
- 
+
     private static final String DB_CREATE_USERS_TABLE =
             "CREATE TABLE " + DB_USERS_TABLE + "( " +
-                "Pseudonim            text not null, " +
-                "Imie_gracza          text, " +
-                "Nazwisko_gracza      text, " +
-                "Avatar               int not null," +
-                "primary key (Pseudonim)" +
-            ");";
+                    "Pseudonim            text not null, " +
+                    "Imie_gracza          text, " +
+                    "Nazwisko_gracza      text, " +
+                    "Avatar               int not null," +
+                    "primary key (Pseudonim)" +
+                    ");";
     private static final String DROP_USERS_TABLE =
             "DROP TABLE IF EXISTS " + DB_USERS_TABLE;
 
     private static final String DB_CREATE_QUESTION_TABLE =
             "CREATE TABLE " + DB_QUESTION_TABLE + "( " +
-                "Nr_Pytania           INTEGER PRIMARY KEY, "+
-                "Pytanie              text not null, " +
-                "Poprawna_odp         text not null, " +
-                "Zla_odp1             text not null, " +
-                "Zla_odp2             text not null, " +
-                "Zla_odp3             text not null, " +
-                "Poziom_trudnosci     INTEGER not null " +
-            ");";
+                    "Nr_Pytania           INTEGER PRIMARY KEY, "+
+                    "Pytanie              text not null, " +
+                    "Poprawna_odp         text not null, " +
+                    "Zla_odp1             text not null, " +
+                    "Zla_odp2             text not null, " +
+                    "Zla_odp3             text not null, " +
+                    "Poziom_trudnosci     INTEGER not null " +
+                    ");";
     private static final String DROP_QUESTION_TABLE =
             "DROP TABLE IF EXISTS " + DB_QUESTION_TABLE;
 
     private static final String DB_CREATE_TEXTS_LED_TABLE =
             "CREATE TABLE " + DB_TEXTS_LED_TABLE + "( " +
-                "ID_tekstu            INTEGER(3) PRIMARY KEY, " +
-                "Tekst_prowadzacego   text not null, " +
-                "Prawdopodobiensto_wypadniecia Integer(3) not null " +
-            ");";
+                    "ID_tekstu            INTEGER(3) PRIMARY KEY, " +
+                    "Tekst_prowadzacego   text not null, " +
+                    "Prawdopodobiensto_wypadniecia Integer(3) not null " +
+                    ");";
     private static final String DROP_TEXTS_LED_TABLE =
             "DROP TABLE IF EXISTS " + DB_TEXTS_LED_TABLE;
 
     private static final String DB_CREATE_TEXTS_FRIEND_TABLE =
             "CREATE TABLE " + DB_TEXTS_FRIEND_TABLE + "( " +
-                "ID_tesktu            INTEGER(3) PRIMARY KEY, " +
-                "Tekst_przyjaciela    text not null, " +
-                "Prawdopodobienstwo_wypadniecia Integer(3) not null "+
-            ");";
+                    "ID_tesktu            INTEGER(3) PRIMARY KEY, " +
+                    "Tekst_przyjaciela    text not null, " +
+                    "Prawdopodobienstwo_wypadniecia Integer(3) not null "+
+                    ");";
     private static final String DROP_TEXTS_FRIEND_TABLE =
             "DROP TABLE IF EXISTS " + DB_TEXTS_FRIEND_TABLE;
 
     private static final String DB_CREATE_RESULTS_TABLE =
             "CREATE TABLE " + DB_RESULTS_TABLE + "( " +
-                "Nr_wyniku            int not null, " +
-                "Pseudonim            text not null, " +
-                "Czas_gry             float not null, " +
-                "Data_wpisu           date not null, " +
-                "Uzyskany_wynik       int not null, " +
-                "Avatar               int not null," +
-                "primary key (Nr_wyniku), " +
-                "FOREIGN KEY(Pseudonim) REFERENCES " + DB_USERS_TABLE + "(Pseudonim)" +
-            ");";
+                    "Nr_wyniku            int not null, " +
+                    "Pseudonim            text not null, " +
+                    "Czas_gry             float not null, " +
+                    "Data_wpisu           date not null, " +
+                    "Uzyskany_wynik       int not null, " +
+                    "Avatar               int not null," +
+                    "primary key (Nr_wyniku), " +
+                    "FOREIGN KEY(Pseudonim) REFERENCES " + DB_USERS_TABLE + "(Pseudonim)" +
+                    ");";
     private static final String DROP_RESULTS_TABLE =
             "DROP TABLE IF EXISTS " + DB_RESULTS_TABLE;
 
@@ -101,7 +101,6 @@ public class sqlAdapter {
 
 
         private void questionAdd(SQLiteDatabase db) {
-            Log.e("Info", "A");
             String[][] question_values = new String[61][];
             question_values[0] = new String[]{"Jak nazywa się klub piłkarski, który zdobył Puchar Ligi Mistrzów w sezonie 2013/2014?", "Real Madryt", "FC Barcelona", "Atletico Madryt", "Bayern Monachium", "3"};
             question_values[1] = new String[]{"Jaki jest wynik sumowania liczb 2 i 8?", "10", "6", "82", "28", "1"};
@@ -164,7 +163,7 @@ public class sqlAdapter {
             question_values[58] = new String[]{"W którym roku została ochrzczona Polska:", "966", "996", "699", "969", "2"};
             question_values[59] = new String[]{"Od czego pochodzi popularny skrót GG:", "Gadu Gadu", "Grupa Gandalfa ", "Głupi Gigant ", "żadna z powyższych ", "1"};
             question_values[60] = new String[]{"Co się kręci wokół Ziemi:", "Księżyc", "Słońce", "Mars", "Wenus", "2"};
-            Log.e("Info", "A1");
+
             try {
                 for (int i = 0; i < question_values.length; i++) {
                     String[] val = question_values[i];
@@ -182,6 +181,49 @@ public class sqlAdapter {
             } catch (Exception error) {
                 Log.e("Error", error.getMessage());
             }
+
+            String[][] text_leading_value = new String[5][];
+            text_leading_value[0] = new String[]{"Czy jesteś pewien tej odpowiedzi?", "3"};
+            text_leading_value[1] = new String[]{"Jesteś pewien?", "1"};
+            text_leading_value[2] = new String[]{"Masz pewność, że ta odpowiedź jest prawidłowa?", "2"};
+            text_leading_value[3] = new String[]{"Myślisz, że ta odpowiedź jest poprawna?", "1"};
+            text_leading_value[4] = new String[]{"Grasz o wielkie pieniądze, zastananów się jeszcze.", "3"};
+
+            try {
+                for (int i = 0; i < text_leading_value.length; i++) {
+                    String[] val = text_leading_value[i];
+
+                    ContentValues values = new ContentValues();
+                    values.put("ID_tesktu", i + 1);
+                    values.put("Tekst_prowadzacego", val[0]);
+                    values.put("Prawdopodobiensto_wypadniecia", val[1]);
+                    db.insert(DB_TEXTS_LED_TABLE, null, values);
+                }
+            } catch (Exception error) {
+                Log.e("Error", error.getMessage());
+            }
+
+            String[][] text_friends_value = new String[5][];
+            text_friends_value[0] = new String[]{"Chyba znam odpowiedź", "3"};
+            text_friends_value[1] = new String[]{"Możliwe, że jest to:", "2"};
+            text_friends_value[2] = new String[]{"Chyba:", "1"};
+            text_friends_value[3] = new String[]{"Nie mam pewności. Chyba:", "2"};
+            text_friends_value[4] = new String[]{"W moim przekonaniu jest to:", "2"};
+
+            try {
+                for (int i = 0; i < text_friends_value.length; i++) {
+                    String[] val = text_friends_value[i];
+
+                    ContentValues values = new ContentValues();
+                    values.put("ID_tesktu", i + 1);
+                    values.put("Tekst_przyjaciela", val[0]);
+                    values.put("Prawdopodobiensto_wypadniecia", val[1]);
+                    db.insert(DB_TEXTS_FRIEND_TABLE, null, values);
+                }
+            } catch (Exception error) {
+                Log.e("Error", error.getMessage());
+            }
+
         }
 
         /**
@@ -215,7 +257,7 @@ public class sqlAdapter {
             Log.d(DEBUG_TAG, "Database updating...");
             Log.d(DEBUG_TAG, "Table updated from ver." + oldVersion + " to ver." + newVersion);
             Log.d(DEBUG_TAG, "All data is lost.");
- 
+
             onCreate(db);
         }
     }
@@ -255,7 +297,7 @@ public class sqlAdapter {
      * @param sql zapytanie sql
      */
     public void sql(String sql) {
-    	db.execSQL(sql);
+        db.execSQL(sql);
     }
 
     /**
@@ -277,7 +319,7 @@ public class sqlAdapter {
      * @return wynik zapytania
      */
     public Cursor getColumn(String[] kolumny, String table) {
-    	return db.query(table, kolumny, null, null, null, null, null);
+        return db.query(table, kolumny, null, null, null, null, null);
     }
 
     /**
@@ -288,7 +330,7 @@ public class sqlAdapter {
      * @return wynik zapytania
      */
     public Cursor getColumn(String[] kolumny, String table, String where) {
-    	return db.query(table, kolumny, where, null, null, null, null);
+        return db.query(table, kolumny, where, null, null, null, null);
     }
 
     /**
@@ -300,5 +342,5 @@ public class sqlAdapter {
     public long insertTodo(ContentValues newTodoValues, String table) {
         return db.insert(table, null, newTodoValues);
     }
-    
+
 }
