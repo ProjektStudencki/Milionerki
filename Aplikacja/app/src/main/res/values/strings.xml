@@ -91,4 +91,6 @@
         <item>100000</item>
     </string-array>
 
+    <string name="error_used_yet">Już skorzystałeś z tego koła.</string>
+
 </resources>

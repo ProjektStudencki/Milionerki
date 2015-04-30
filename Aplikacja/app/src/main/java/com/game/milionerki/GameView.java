@@ -24,8 +24,10 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,9 +35,12 @@ import com.game.gameAction.QuestionsData;
 import com.game.gameAction.SaveResult;
 import com.game.menu.DrawerItemCustomAdapter;
 
+import org.w3c.dom.Text;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import menu.ObjectDrawerItem;
 
@@ -76,6 +81,14 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     private int tab_quest[] = new int[10];
     private QuestionsData questionsData;
 
+    //koła
+    private ImageView kolo_50;
+    private ImageView kolo_przyjaciel;
+    private ImageView kolo_publicznosc;
+
+    private int[] usedHelp = new int[] { 0, 0, 0 };
+    private String[] odp_50 = new String[2];
+
     /**
      * Stworzenie widoku gry
      *
@@ -87,6 +100,10 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
 
         for (int i = 0; i < 10; i++)
             tab_quest[i] = -1;
+
+        kolo_50 = (ImageView) findViewById(R.id.kolo_50);
+        kolo_przyjaciel = (ImageView) findViewById(R.id.kolo_telefon);
+        kolo_publicznosc = (ImageView) findViewById(R.id.kolo_publicznosc);
 
         btn_a = (Button) findViewById(R.id.btn_a);
         btn_b = (Button) findViewById(R.id.btn_b);
@@ -108,15 +125,6 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         DisplayMetrics metrics = new DisplayMetrics();
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         wm.getDefaultDisplay().getMetrics(metrics);
-
-        /*
-        final float width = metrics.widthPixels;
-        LinearLayout.LayoutParams layoutParamsWidth50 = new LinearLayout.LayoutParams((int) (width/2) , ViewGroup.LayoutParams.MATCH_PARENT);
-
-        btn_a.setLayoutParams(layoutParamsWidth50);
-        btn_b.setLayoutParams(layoutParamsWidth50);
-        btn_c.setLayoutParams(layoutParamsWidth50);
-        btn_d.setLayoutParams(layoutParamsWidth50);*/
 
         /**
          * Ustawianie tytułu oraz paneli
@@ -172,12 +180,66 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
+        /**
+         * nasłuchy na koła
+         */
+        kolo_50.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (usedHelp[0] == 0) {
+                    help50();
+                    usedHelp[0] = 1;
+                    kolo_50.setImageResource(R.drawable.kolo_5050_skr);
+                } else Toast.makeText(getApplicationContext(), getString(R.string.error_used_yet), Toast.LENGTH_LONG).show();
+            }
+        });
+
         /** Ustawienie aktualnego czasu */
         now = Calendar.getInstance();
 
         /** Losowanie pytań */
         questionsData = new QuestionsData(getApplicationContext());
         setQuestion();
+    }
+
+    /**
+     * Funkcja odpowiedzialna za koło 50/50
+     */
+    private void help50() {
+        String poprawna_odp = question.get("poprawna");
+        int count = 0;
+        int oldCount = -1;
+
+        do {
+            Random r = new Random();
+            int _result = r.nextInt(4);
+            String odp_rand = "odp_" + _result;
+
+            if (!odp_rand.equalsIgnoreCase(poprawna_odp) && _result != oldCount) {
+                Button disable = null;
+                switch (_result) {
+                    case 0:
+                        disable = btn_a;
+                        break;
+                    case 1:
+                        disable = btn_b;
+                        break;
+                    case 2:
+                        disable = btn_c;
+                        break;
+                    default:
+                        disable = btn_d;
+                        break;
+                }
+                disable.setClickable(false);
+                disable.setText("");
+
+                odp_50[count] = odp_rand;
+
+                count++;
+                oldCount = _result;
+            }
+        } while(count < 2);
+
     }
 
     /**
@@ -188,6 +250,10 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         if (questionCount == 10) {
             endGame("win");
         } else {
+            for (int i = 0; i < 2; i++) {
+                odp_50[i] = "";
+            }
+
             /** Ustawianie **/
             TextView _currCash = (TextView) findViewById(R.id.prog_txt);
             TextView _currQuestionCount = (TextView) findViewById(R.id.question_count);
