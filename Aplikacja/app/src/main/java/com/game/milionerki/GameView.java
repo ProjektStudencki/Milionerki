@@ -225,6 +225,57 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     }
 
     /**
+     * Funkcja odpowiedzialna za wyświetlanie tekstu prowadzącego
+     */
+    private void textLeading() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setView(randTextLeading());
+        alert = dialogBuilder.create();
+        alert.show();
+    }
+
+    /**
+     *
+     * Funkcja odpowiedzialna za losowanie tekstu prowadzącego
+     */
+    private View randTextLeading() {
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.dialog_alert_text_leading, (ViewGroup) this.findViewById(R.id.layout_root));
+
+        int max = 100;
+        int min = 0;
+
+        Random r = new Random();
+        int rand = r.nextInt(max - min + 1) + min;
+
+        int level = 3;
+        if (rand < 20) {
+            level = 1;
+        } else if (rand < 50) {
+            level = 2;
+        }
+
+        sqlAdapter.open();
+
+        String[] kolumny = { "Tekst_prowadzacego" };
+        Cursor data = sqlAdapter.getColumn(kolumny, sqlAdapter.DB_TEXTS_LED_TABLE, "Prawdopodobiensto_wypadniecia = " + level);
+        int total = data.getCount() - 1;
+
+        r = new Random();
+        int chooseText = r.nextInt(total + 1);
+
+        data.moveToPosition(chooseText);
+        String text_friend = data.getString(0);
+
+        sqlAdapter.close();
+
+        TextView _text_lead = (TextView) layout.findViewById(R.id.text_lead);
+        _text_lead.setText(text_friend);
+
+        return layout;
+    }
+
+    /**
      * Funkcja odpowiedzialna za koło 50/50
      */
     private void help50() {
