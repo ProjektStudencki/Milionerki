@@ -1,5 +1,17 @@
-﻿text_leading_value[0] = new String[]{"Czy jesteś pewien tej odpowiedzi?", "3"};
-text_leading_value[1] = new String[]{"Jesteś pewien?", "1"};
-text_leading_value[2] = new String[]{"Masz pewność, że ta odpowiedź jest prawidłowa?", "2"};
-text_leading_value[3] = new String[]{"Myślisz, że ta odpowiedź jest poprawna?", "1"};
-text_leading_value[4] = new String[]{"Grasz o wielkie pieniądze, zastananów się jeszcze.", "3"};
+﻿text_leading_value[0] = new String[]{"Czy jesteś pewny odpowiedzi?", "3"};
+
+text_leading_value[1] = new String[]{"Jesteś pewny tego?", "2"};
+text_leading_value[2] = new String[]{"Na pewno chcesz zaznaczyć tę odpowiedź?", "1"};
+text_leading_value[3] = new String[]{"Zastanowiłeś się i chcesz wybrać tę odpowiedź?", "1"};
+text_leading_value[4] = new String[]{"Na pewno?", "3"};
+text_leading_value[5] = new String[]{"Wybierasz to?", "2"};
+text_leading_value[6] = new String[]{"Pomyśl chwilę zanim potwierdzisz wybór", "1"};
+text_leading_value[7] = new String[]{"Na pewno ta odpowiedź?", "3"};
+text_leading_value[8] = new String[]{"Potem już nie będzie odwrotu", "2"};
+text_leading_value[9] = new String[]{"Zaznaczamy?", "1"};
+text_leading_value[10] = new String[]{"Wybierasz tę odpowiedź?", "3"};
+text_leading_value[11] = new String[]{"Niezły z Ciebie ryzykant", "2"};
+text_leading_value[12] = new String[]{"Nie biorę odpowiedzialności za Twój wybór", "1"};
+text_leading_value[13] = new String[]{"Kto nie ryzykuje ten nie wygrywa", "3"};
+text_leading_value[14] = new String[]{"Zaznaczasz tę odpowiedź?", "2"};
+text_leading_value[15] = new String[]{"Na sto procent wybieramy tę odpowiedź?", "1"};
