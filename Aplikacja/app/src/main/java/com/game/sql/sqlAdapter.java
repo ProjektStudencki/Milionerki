@@ -334,6 +334,18 @@ public class sqlAdapter {
     }
 
     /**
+     * Funkcja odpowiedzialna za pobranie wartości z danych kolumn tabeli db
+     * @param kolumny lista kolumn
+     * @param table nazwa tabeli
+     * @param where warunek szukania
+     * @param orderBy sortowanie
+     * @return wynik zapytania
+     */
+    public Cursor getColumn(String[] kolumny, String table, String where, String orderBy) {
+        return db.query(table, kolumny, where, null, null, null, orderBy);
+    }
+
+    /**
      * Funkcja odpowiedzialna za wykonywania sql typu INSERT
      * @param newTodoValues wartości sql'a
      * @param table nazwa tabeli

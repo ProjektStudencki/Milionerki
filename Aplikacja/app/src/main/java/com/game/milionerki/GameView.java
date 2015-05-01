@@ -781,7 +781,10 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     private void endGame(String typ) {
         if(!typ.equalsIgnoreCase("loss")) {
             TypedArray cash_array = getResources().obtainTypedArray(R.array.cash_array);
-            String val = cash_array.getString(questionCount - 1);
+            String val = "0";
+            if (questionCount > 1) {
+                val = cash_array.getString(questionCount - 2);
+            }
             int cash = Integer.parseInt(val);
 
             Calendar end = Calendar.getInstance();
