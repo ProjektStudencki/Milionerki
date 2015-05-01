@@ -37,9 +37,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ff9dbc6-8f9b-4cde-ae1b-9d9093f5490f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/RankingView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/RankingView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/sql/sqlAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/sql/sqlAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Milionerki.iws" />
@@ -1975,7 +1977,11 @@
       <created>1430393884532</created>
       <updated>1430393884532</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Dodanie sortowania wyników w rankingu">
+      <created>1430475737203</created>
+      <updated>1430475737204</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2062,7 +2068,8 @@
     <MESSAGE value="Dodanie loga oraz screenów działania kół" />
     <MESSAGE value="Poprawka wyglądu gry" />
     <MESSAGE value="@1 Implementacja pytań prowadzącego.&#10;@2 Zmiana wersji aplikacji w &quot;O Grze&quot; na 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="@1 Implementacja pytań prowadzącego.&#10;@2 Zmiana wersji aplikacji w &quot;O Grze&quot; na 1" />
+    <MESSAGE value="Dodanie sortowania wyników w rankingu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie sortowania wyników w rankingu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
