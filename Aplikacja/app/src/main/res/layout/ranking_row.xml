@@ -12,13 +12,14 @@
         android:paddingBottom="10dp">
 
         <RelativeLayout
-            android:layout_width="315dp"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="@+id/avatar"
             android:id="@+id/relativeLayout"
-            android:background="@color/blue">
+            android:background="@color/blue"
+            android:layout_alignRight="@+id/avatar"
+            android:layout_marginRight="50dp">
 
             <TextView
                 android:layout_width="fill_parent"

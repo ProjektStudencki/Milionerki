@@ -74,7 +74,7 @@ public final class R {
     public static final class id {
         public static final int aboutView=0x7f0a000a;
         public static final int action_settings=0x7f0a004d;
-        public static final int avatar=0x7f0a0048;
+        public static final int avatar=0x7f0a0049;
         public static final int backButton=0x7f0a000d;
         public static final int box1=0x7f0a001b;
         public static final int btn_a=0x7f0a0022;
@@ -120,7 +120,7 @@ public final class R {
         public static final int question_txt=0x7f0a0027;
         public static final int rankingText=0x7f0a004a;
         public static final int rankingView=0x7f0a0008;
-        public static final int relativeLayout=0x7f0a0049;
+        public static final int relativeLayout=0x7f0a0048;
         public static final int relativeLayout2=0x7f0a0025;
         public static final int relativeLayout3=0x7f0a002b;
         public static final int relativeLayout4=0x7f0a0032;

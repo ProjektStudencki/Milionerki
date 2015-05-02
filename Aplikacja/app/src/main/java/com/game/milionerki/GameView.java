@@ -9,13 +9,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
-import android.text.format.Time;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,7 +24,6 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -35,10 +32,8 @@ import android.widget.Toast;
 import com.game.gameAction.QuestionsData;
 import com.game.gameAction.SaveResult;
 import com.game.menu.DrawerItemCustomAdapter;
-import com.game.sql.sqlAdapter;
 
-import org.w3c.dom.Text;
-
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -69,7 +64,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     private int cash = 0;
 
     private int profil = 0;
-    private Calendar now;
+    private long now;
 
     private String nick = "";
 
@@ -97,6 +92,27 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     private Thread odpThread;
     private int count = 0;
 
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+
+        outState.putIntArray("tab_quest", tab_quest);
+        outState.putIntArray("usedHelp", usedHelp);
+        outState.putStringArray("odp_50", odp_50);
+
+        outState.putString("pytanie", question.get("pytanie"));
+        outState.putString("poprawna", question.get("poprawna"));
+        outState.putString("odp_0", question.get("odp_0"));
+        outState.putString("odp_1", question.get("odp_1"));
+        outState.putString("odp_2", question.get("odp_2"));
+        outState.putString("odp_3", question.get("odp_3"));
+
+        outState.putInt("questionCount", questionCount);
+        outState.putInt("profil", profil);
+        outState.putLong("now", now);
+        outState.putString("nick", nick);
+    }
+
     /**
      * Stworzenie widoku gry
      *
@@ -105,6 +121,32 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_view);
+
+        if(savedInstanceState != null)
+        {
+            tab_quest = savedInstanceState.getIntArray("tab_quest");
+            usedHelp = savedInstanceState.getIntArray("usedHelp");
+            odp_50 = savedInstanceState.getStringArray("odp_50");
+
+            String _tmp;
+            _tmp = savedInstanceState.getString("pytanie");
+            question.put("pytanie", _tmp);
+            _tmp = savedInstanceState.getString("poprawna");
+            question.put("poprawna", _tmp);
+            _tmp = savedInstanceState.getString("odp_0");
+            question.put("odp_0", _tmp);
+            _tmp = savedInstanceState.getString("odp_1");
+            question.put("odp_1", _tmp);
+            _tmp = savedInstanceState.getString("odp_2");
+            question.put("odp_2", _tmp);
+            _tmp = savedInstanceState.getString("odp_3");
+            question.put("odp_3", _tmp);
+
+            questionCount = savedInstanceState.getInt("questionCount");
+            profil = savedInstanceState.getInt("profil");
+            now = savedInstanceState.getLong("now");
+            nick = savedInstanceState.getString("nick");
+        }
 
         for (int i = 0; i < 10; i++)
             tab_quest[i] = -1;
@@ -223,7 +265,8 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         });
 
         /** Ustawienie aktualnego czasu */
-        now = Calendar.getInstance();
+        Calendar nowCalendar = Calendar.getInstance();
+        now = nowCalendar.getTimeInMillis();
 
         /** Losowanie pytań */
         questionsData = new QuestionsData(getApplicationContext());
@@ -696,7 +739,6 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                             count++;
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
-                            Log.e("Sleep", "Error " + e.toString());
                         }
                     }
                 }
@@ -716,7 +758,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                         if (!questionsData.checkAnswer(question, 0)) {
                             btn_a.setBackgroundColor(getResources().getColor(R.color.btn_bad));
                             colorGoodAnswer();
-                            endGame("loss");
+                            badAnswer();
                         } else {
                             btn_a.setBackgroundColor(getResources().getColor(R.color.btn_active));
                             questionCount++;
@@ -736,7 +778,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                         if (!questionsData.checkAnswer(question, 1)) {
                             btn_b.setBackgroundColor(getResources().getColor(R.color.btn_bad));
                             colorGoodAnswer();
-                            endGame("loss");
+                            badAnswer();
                         } else {
                             btn_b.setBackgroundColor(getResources().getColor(R.color.btn_active));
                             questionCount++;
@@ -756,7 +798,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                         if (!questionsData.checkAnswer(question, 2)) {
                             btn_c.setBackgroundColor(getResources().getColor(R.color.btn_bad));
                             colorGoodAnswer();
-                            endGame("loss");
+                            badAnswer();
                         } else {
                             btn_c.setBackgroundColor(getResources().getColor(R.color.btn_active));
                             questionCount++;
@@ -776,7 +818,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                         if (!questionsData.checkAnswer(question, 3)) {
                             btn_d.setBackgroundColor(getResources().getColor(R.color.btn_bad));
                             colorGoodAnswer();
-                            endGame("loss");
+                            badAnswer();
                         } else {
                             btn_d.setBackgroundColor(getResources().getColor(R.color.btn_active));
                             questionCount++;
@@ -788,6 +830,9 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         }
     }
 
+    /**
+     * Funkcja odpowiedzialna za kolorowanie poprawnej odpowiedzi
+     */
     private void colorGoodAnswer() {
         String poprawna = question.get("poprawna");
 
@@ -800,6 +845,42 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         else if (poprawna.equalsIgnoreCase("odp_3"))
             btn_d.setBackgroundColor(getResources().getColor(R.color.btn_active));
     }
+
+    /**
+     * Funkcja odpowiedzialna za wątek wykonania zakończenia gry
+     */
+    private void badAnswer() {
+        count = 0;
+        Runnable runnable = new Runnable() {
+            public void run() {
+                while (count <= 3) {
+                    if (count == 3) {
+                        try {
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    endGame("loss");
+                                }
+                            });
+                        } catch (NullPointerException error) {
+                            count = 4;
+                            Thread.currentThread().interrupt();
+                        }
+                    }
+
+                    try {
+                        Thread.sleep(300);
+                        count++;
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }
+        };
+        odpThread = new Thread(runnable);
+        odpThread.start();
+
+    }
+
 
     /**
      * Funkcja odpowiedzialna za losowanie
@@ -840,7 +921,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             int cash = Integer.parseInt(val);
 
             Calendar end = Calendar.getInstance();
-            float timeGame = (float)(end.getTimeInMillis() - now.getTimeInMillis());
+            float timeGame = (float)(end.getTimeInMillis() - now);
 
             SaveResult save = new SaveResult();
             save.saveReuslt(getApplicationContext(), nick, cash, timeGame, profil);
