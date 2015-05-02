@@ -94,6 +94,9 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     private boolean textCurr = false;
     private int randText = 0;
 
+    private Thread odpThread;
+    private int count = 0;
+
     /**
      * Stworzenie widoku gry
      *
@@ -638,40 +641,68 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         if (questionCount > 10) {
             endGame("win");
         } else {
-            textCurr = false;
-            for (int i = 0; i < 2; i++) {
-                odp_50[i] = "";
-            }
+            count = 0;
+            if (questionCount == 1)
+                count = 3;
 
-            /** Ustawianie **/
-            TextView _currCash = (TextView) findViewById(R.id.prog_txt);
-            TextView _currQuestionCount = (TextView) findViewById(R.id.question_count);
-            TypedArray cash_array = getResources().obtainTypedArray(R.array.cash_array);
+            Runnable runnable = new Runnable() {
+                public void run() {
+                    while (count <= 3) {
+                        if (count == 3) {
+                            try {
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        textCurr = false;
+                                        for (int i = 0; i < 2; i++) {
+                                            odp_50[i] = "";
+                                        }
 
-            _currCash.setText(getResources().getString(R.string.cash) + " " + cash_array.getString(questionCount - 1));
-            _currQuestionCount.setText(getResources().getString(R.string.question_count) + " " + questionCount);
+                                        /** Ustawianie **/
+                                        TextView _currCash = (TextView) findViewById(R.id.prog_txt);
+                                        TextView _currQuestionCount = (TextView) findViewById(R.id.question_count);
+                                        TypedArray cash_array = getResources().obtainTypedArray(R.array.cash_array);
 
-            /* pobranie pytań */
-            question = questionsData.downloadQuestions(questionCount, tab_quest);
-            String val = question.get("error");
-            if (val != null) {
-                finish();
-            } else {
-                onOrOffButton(true);
-                String poprawna_odp = question.get("poprawna");
-                tab_quest[questionCount - 1] = Integer.parseInt(question.get("id"));
+                                        _currCash.setText(getResources().getString(R.string.cash) + " " + cash_array.getString(questionCount - 1));
+                                        _currQuestionCount.setText(getResources().getString(R.string.question_count) + " " + questionCount);
 
-                TextView question_txt = (TextView) findViewById(R.id.question_txt);
+                                        /* pobranie pytań */
+                                        question = questionsData.downloadQuestions(questionCount, tab_quest);
+                                        String val = question.get("error");
+                                        if (val != null) {
+                                            finish();
+                                        } else {
+                                            onOrOffButton(true);
+                                            String poprawna_odp = question.get("poprawna");
+                                            tab_quest[questionCount - 1] = Integer.parseInt(question.get("id"));
 
-                question_txt.setText(question.get("pytanie"));
-                btn_a.setText(question.get("odp_0"));
-                btn_b.setText(question.get("odp_1"));
-                btn_c.setText(question.get("odp_2"));
-                btn_d.setText(question.get("odp_3"));
-            }
+                                            TextView question_txt = (TextView) findViewById(R.id.question_txt);
 
-            Random r = new Random();
-            randText = r.nextInt(100);
+                                            question_txt.setText(question.get("pytanie"));
+                                            btn_a.setText(question.get("odp_0"));
+                                            btn_b.setText(question.get("odp_1"));
+                                            btn_c.setText(question.get("odp_2"));
+                                            btn_d.setText(question.get("odp_3"));
+                                        }
+                                    }
+                                });
+                            } catch (NullPointerException error) {
+                                count = 4;
+                                Thread.currentThread().interrupt();
+                            }
+                        }
+
+                        try {
+                            Thread.sleep(300);
+                            count++;
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                            Log.e("Sleep", "Error " + e.toString());
+                        }
+                    }
+                }
+            };
+            odpThread = new Thread(runnable);
+            odpThread.start();
 
             /** nasłuch na odpowiedzi */
             btn_a.setOnClickListener(new View.OnClickListener() {
@@ -682,10 +713,12 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                         textLeading();
                     } else {
                         onOrOffButton(false);
-                        btn_a.setBackgroundColor(getResources().getColor(R.color.btn_active));
                         if (!questionsData.checkAnswer(question, 0)) {
+                            btn_a.setBackgroundColor(getResources().getColor(R.color.btn_bad));
+                            colorGoodAnswer();
                             endGame("loss");
                         } else {
+                            btn_a.setBackgroundColor(getResources().getColor(R.color.btn_active));
                             questionCount++;
                             setQuestion();
                         }
@@ -700,10 +733,12 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                         textLeading();
                     } else {
                         onOrOffButton(false);
-                        btn_b.setBackgroundColor(getResources().getColor(R.color.btn_active));
                         if (!questionsData.checkAnswer(question, 1)) {
+                            btn_b.setBackgroundColor(getResources().getColor(R.color.btn_bad));
+                            colorGoodAnswer();
                             endGame("loss");
                         } else {
+                            btn_b.setBackgroundColor(getResources().getColor(R.color.btn_active));
                             questionCount++;
                             setQuestion();
                         }
@@ -718,10 +753,12 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                         textLeading();
                     } else {
                         onOrOffButton(false);
-                        btn_c.setBackgroundColor(getResources().getColor(R.color.btn_active));
                         if (!questionsData.checkAnswer(question, 2)) {
+                            btn_c.setBackgroundColor(getResources().getColor(R.color.btn_bad));
+                            colorGoodAnswer();
                             endGame("loss");
                         } else {
+                            btn_c.setBackgroundColor(getResources().getColor(R.color.btn_active));
                             questionCount++;
                             setQuestion();
                         }
@@ -736,10 +773,12 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                         textLeading();
                     } else {
                         onOrOffButton(false);
-                        btn_d.setBackgroundColor(getResources().getColor(R.color.btn_active));
                         if (!questionsData.checkAnswer(question, 3)) {
+                            btn_d.setBackgroundColor(getResources().getColor(R.color.btn_bad));
+                            colorGoodAnswer();
                             endGame("loss");
                         } else {
+                            btn_d.setBackgroundColor(getResources().getColor(R.color.btn_active));
                             questionCount++;
                             setQuestion();
                         }
@@ -747,6 +786,19 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                 }
             });
         }
+    }
+
+    private void colorGoodAnswer() {
+        String poprawna = question.get("poprawna");
+
+        if (poprawna.equalsIgnoreCase("odp_0"))
+            btn_a.setBackgroundColor(getResources().getColor(R.color.btn_active));
+        else if (poprawna.equalsIgnoreCase("odp_1"))
+            btn_b.setBackgroundColor(getResources().getColor(R.color.btn_active));
+        else if (poprawna.equalsIgnoreCase("odp_2"))
+            btn_c.setBackgroundColor(getResources().getColor(R.color.btn_active));
+        else if (poprawna.equalsIgnoreCase("odp_3"))
+            btn_d.setBackgroundColor(getResources().getColor(R.color.btn_active));
     }
 
     /**

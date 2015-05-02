@@ -15,69 +15,94 @@
             android:layout_gravity="left|bottom"
             android:padding="10dp">
 
-            <Button
-                android:layout_width="180dp"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="70dp"
-                android:id="@+id/btn_c"
-                android:textColor="@color/fff"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="4dp" />
+                android:id="@+id/linearLayout">
 
-            <Button
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:minHeight="70dp"
-                android:id="@+id/btn_d"
-                android:textColor="@color/fff"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="4dp" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <Button
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:minHeight="70dp"
-                android:id="@+id/btn_a"
-                android:textColor="@color/fff"
-                android:layout_alignParentLeft="true"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_above="@+id/btn_c" />
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="70dp"
+                        android:id="@+id/btn_a"
+                        android:textColor="@color/fff"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_above="@+id/btn_c" />
 
-            <Button
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:minHeight="70dp"
-                android:id="@+id/btn_b"
-                android:textColor="@color/fff"
-                android:layout_below="@+id/relativeLayout2"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="4dp"
-                android:layout_above="@+id/btn_d" />
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="70dp"
+                        android:id="@+id/btn_b"
+                        android:textColor="@color/fff"
+                        android:layout_below="@+id/relativeLayout2"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_above="@+id/btn_d" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="70dp"
+                        android:id="@+id/btn_c"
+                        android:textColor="@color/fff"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="4dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="70dp"
+                        android:id="@+id/btn_d"
+                        android:textColor="@color/fff"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="4dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="70dp"
-                android:layout_above="@+id/btn_a"
-                android:layout_alignLeft="@+id/btn_a"
                 android:background="@color/fff"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/relativeLayout2">
+                android:id="@+id/relativeLayout2"
+                android:layout_above="@+id/linearLayout"
+                android:layout_alignParentLeft="true">
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:layout_marginBottom="5dp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/question_txt"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:minHeight="70dp"
+                    android:layout_alignParentLeft="true" />
+
             </RelativeLayout>
 
             <TextView
@@ -107,7 +132,6 @@
                 android:id="@+id/imageView2"
                 android:src="@drawable/hubert"
                 android:layout_alignLeft="@+id/prog_txt"
-                android:layout_alignTop="@+id/relativeLayout3"
                 android:layout_above="@+id/prog_txt" />
 
             <RelativeLayout
@@ -145,6 +169,7 @@
                     android:src="@drawable/kolo_publicznosc" />
 
             </RelativeLayout>
+
         </RelativeLayout>
     </FrameLayout>
 
