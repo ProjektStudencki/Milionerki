@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.database.Cursor;
@@ -14,6 +15,7 @@ import android.os.Parcelable;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -276,11 +278,41 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
     /**
      * Funkcja odpowiedzialna za wyświetlanie tekstu prowadzącego
      */
-    private void textLeading() {
+    private void textLeading(int val) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setView(randTextLeading());
         alert = dialogBuilder.create();
         alert.show();
+
+        count = 0;
+        Runnable runnable = new Runnable() {
+            public void run() {
+                while (count <= 1) {
+                    if (count == 1) {
+                        try {
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    alert.dismiss();
+                                }
+                            });
+                        } catch (NullPointerException error) {
+                            count = 4;
+                            Thread.currentThread().interrupt();
+                        }
+                    }
+
+                    try {
+                        Thread.sleep(2000);
+                        count++;
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }
+        };
+        odpThread = new Thread(runnable);
+        odpThread.start();
+
     }
 
     /**
@@ -372,7 +404,11 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
      */
     private void helpFriend() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setTitle(R.string.dialog_alert_friend).setView(getCustomDialogLayoutFreind());
+        dialogBuilder.setTitle(R.string.dialog_alert_friend).setView(getCustomDialogLayoutFreind()).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
         alert = dialogBuilder.create();
         alert.show();
     }
@@ -473,7 +509,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         r = new Random();
         rand = r.nextInt(max - min + 1) + min;
 
-        if (rand <= 60) {
+        if (rand <= 75) {
             if (question.get("poprawna").equalsIgnoreCase("odp_0"))
                 a.setBackgroundColor(getResources().getColor(R.color.btn_active));
             else if (question.get("poprawna").equalsIgnoreCase("odp_1"))
@@ -513,7 +549,11 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
      */
     private void helpAudience() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setTitle(R.string.dialog_alert_audience).setView(getCustomDialogLayoutAudience());
+        dialogBuilder.setTitle(R.string.dialog_alert_audience).setView(getCustomDialogLayoutAudience()).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
         alert = dialogBuilder.create();
         alert.show();
     }
@@ -548,10 +588,11 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         TextView odp_c_prc = (TextView) layout.findViewById(R.id.textView9);
         TextView odp_d_prc = (TextView) layout.findViewById(R.id.textView13);
 
-        if (rand <= 65) {
+        if (rand <= 100) {
             int count = 0;
             int total = 0;
             int total_odp = 4;
+            int[] tab_temp = new int[4];
             if (!odp_50[0].equalsIgnoreCase("")) {
                 total_odp = 2;
             }
@@ -562,9 +603,9 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                 if (nameOdp[count].equalsIgnoreCase(poprawna_odp))
                     count++;
 
-                if (count < 4) {
-                    boolean error = true;
-                    do {
+                boolean error = true;
+                do {
+                    if (count < 4) {
                         error = false;
                         if (nameOdp[count].equalsIgnoreCase("odp_0") && (odp_50[0].equalsIgnoreCase("odp_0") || odp_50[1].equalsIgnoreCase("odp_0"))) {
                             count++;
@@ -579,44 +620,48 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                             count++;
                             error = true;
                         }
-                    } while (error);
+                    }
+                } while (error && count < 4);
 
+                if (count < 4) {
                     if (nameOdp[count].equalsIgnoreCase("odp_0")) {
                         odp_a.setProgress(_rand_val);
                         odp_a_prc.setText(_rand_val + "%");
                         total += _rand_val;
+                        tab_temp[0] = _rand_val;
                     } else if (nameOdp[count].equalsIgnoreCase("odp_1")) {
                         odp_b.setProgress(_rand_val);
                         odp_b_prc.setText(_rand_val + "%");
                         total += _rand_val;
+                        tab_temp[1] = _rand_val;
                     } else if (nameOdp[count].equalsIgnoreCase("odp_2")) {
                         odp_c.setProgress(_rand_val);
                         odp_c_prc.setText(_rand_val + "%");
                         total += _rand_val;
+                        tab_temp[2] = _rand_val;
                     } else if (nameOdp[count].equalsIgnoreCase("odp_3")) {
                         odp_d.setProgress(_rand_val);
                         odp_d_prc.setText(_rand_val + "%");
                         total += _rand_val;
+                        tab_temp[3] = _rand_val;
                     }
                 }
                 count++;
             } while(count < 4);
 
             if (poprawna_odp.equalsIgnoreCase("odp_0")) {
-                odp_a.setProgress(100 - total);
-                odp_a_prc.setText((100 - total)+"%");
+                odp_a.setProgress(100 - total + tab_temp[0]);
+                odp_a_prc.setText((100 - total + tab_temp[0])+"%");
             } else if (poprawna_odp.equalsIgnoreCase("odp_1")) {
-                odp_b.setProgress(100 - total);
-                odp_b_prc.setText((100 - total)+"%");
+                odp_b.setProgress(100 - total + tab_temp[1]);
+                odp_b_prc.setText((100 - total + tab_temp[1])+"%");
             } else if (poprawna_odp.equalsIgnoreCase("odp_2")) {
-                odp_c.setProgress(100 - total);
-                odp_c_prc.setText((100 - total)+"%");
+                odp_c.setProgress(100 - total + tab_temp[2]);
+                odp_c_prc.setText((100 - total + tab_temp[2])+"%");
             } else if (poprawna_odp.equalsIgnoreCase("odp_3")) {
-                odp_d.setProgress(100 - total);
-                odp_d_prc.setText((100 - total)+"%");
+                odp_d.setProgress(100 - total + tab_temp[3]);
+                odp_d_prc.setText((100 - total + tab_temp[3])+"%");
             }
-
-
         } else {
             int count = 0;
             int total = 0;
@@ -625,6 +670,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                 total_odp = 2;
             }
             max = 100;
+            int total_yet = 0;
             do {
                 int _rand_val = 0;
                 boolean error = true;
@@ -643,33 +689,33 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                         count++;
                         error = true;
                     }
-                } while(error);
+                } while(error && count < 4);
 
-                if (count < 3) {
+                total_yet++;
+
+                if (total_yet < total_odp - 1) {
                     _rand_val = r.nextInt(max - min + 1) + min;
                     max -= _rand_val;
                 } else {
                     _rand_val = max;
                 }
 
-                if (nameOdp[count].equalsIgnoreCase("odp_0")) {
-                    odp_a.setProgress(_rand_val);
-                    odp_a_prc.setText(_rand_val+"%");
+                if (count < 4) {
+                    if (nameOdp[count].equalsIgnoreCase("odp_0")) {
+                        odp_a.setProgress(_rand_val);
+                        odp_a_prc.setText(_rand_val + "%");
+                    } else if (nameOdp[count].equalsIgnoreCase("odp_1")) {
+                        odp_b.setProgress(_rand_val);
+                        odp_b_prc.setText(_rand_val + "%");
+                    } else if (nameOdp[count].equalsIgnoreCase("odp_2")) {
+                        odp_c.setProgress(_rand_val);
+                        odp_c_prc.setText(_rand_val + "%");
+                    } else if (nameOdp[count].equalsIgnoreCase("odp_3")) {
+                        odp_d.setProgress(_rand_val);
+                        odp_d_prc.setText(_rand_val + "%");
+                    }
+                    count++;
                 }
-                else if (nameOdp[count].equalsIgnoreCase("odp_1")) {
-                    odp_b.setProgress(_rand_val);
-                    odp_b_prc.setText(_rand_val+"%");
-                }
-                else if (nameOdp[count].equalsIgnoreCase("odp_2")) {
-                    odp_c.setProgress(_rand_val);
-                    odp_c_prc.setText(_rand_val+"%");
-                }
-                else if (nameOdp[count].equalsIgnoreCase("odp_3")) {
-                    odp_d.setProgress(_rand_val);
-                    odp_d_prc.setText(_rand_val+"%");
-                }
-                count++;
-
             } while(count < 4);
 
         }
@@ -752,7 +798,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                     randomText();
                     if (randText <= 80) {
                         btn_a.setBackgroundColor(getResources().getColor(R.color.btn_choose));
-                        textLeading();
+                        textLeading(1);
                     } else {
                         onOrOffButton(false);
                         if (!questionsData.checkAnswer(question, 0)) {
@@ -772,7 +818,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                     randomText();
                     if (randText <= 80) {
                         btn_b.setBackgroundColor(getResources().getColor(R.color.btn_choose));
-                        textLeading();
+                        textLeading(2);
                     } else {
                         onOrOffButton(false);
                         if (!questionsData.checkAnswer(question, 1)) {
@@ -792,7 +838,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                     randomText();
                     if (randText <= 80) {
                         btn_c.setBackgroundColor(getResources().getColor(R.color.btn_choose));
-                        textLeading();
+                        textLeading(3);
                     } else {
                         onOrOffButton(false);
                         if (!questionsData.checkAnswer(question, 2)) {
@@ -812,7 +858,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                     randomText();
                     if (randText <= 80) {
                         btn_d.setBackgroundColor(getResources().getColor(R.color.btn_choose));
-                        textLeading();
+                        textLeading(4);
                     } else {
                         onOrOffButton(false);
                         if (!questionsData.checkAnswer(question, 3)) {
