@@ -7,24 +7,25 @@
 
     <ScrollView
 	    android:id="@+id/scrollView1"
+        android:layout_above="@+id/backButton"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent" >
-	    
+
 	    <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
-	        android:orientation="vertical" 
+	        android:orientation="vertical"
 	        android:paddingLeft="15dp"
-    		android:paddingRight="15dp" 
+    		android:paddingRight="15dp"
     		android:paddingBottom="15dp">
-		    
+
 	        <ImageView
 	            android:id="@+id/imageView1"
 	            android:layout_width="wrap_content"
 	            android:layout_height="100dp"
 	            android:layout_marginTop="10dp"
 	            android:src="@drawable/logo" />
-	        
+
 			<RelativeLayout
 			    android:layout_width="match_parent"
 			    android:layout_height="match_parent"
@@ -43,7 +44,9 @@
 				    android:layout_centerHorizontal="true"
 				    android:text="@string/title_system_rozgrywki"
 				    android:textColor="@color/fff"
-				    android:textAppearance="?android:attr/textAppearanceMedium" />
+				    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
 
 				<TextView
 				    android:id="@+id/textView2"
@@ -53,10 +56,11 @@
 				    android:layout_below="@+id/textView1"
 				    android:paddingTop="5dp"
 				    android:text="@string/text_system_rozgrywki"
-				    android:textColor="@color/fff" />
-			
-			</RelativeLayout>			
-			
+				    android:textColor="@color/fff"
+                    android:textSize="18dp" />
+
+			</RelativeLayout>
+
 			<RelativeLayout
 			    android:layout_width="match_parent"
 			    android:layout_height="match_parent"
@@ -75,7 +79,9 @@
 				    android:layout_centerHorizontal="true"
 				    android:text="@string/title_wersja"
 				    android:textAppearance="?android:attr/textAppearanceMedium"
-				    android:textColor="@color/fff" />
+				    android:textColor="@color/fff"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
 
 				<TextView
 				    android:id="@+id/textView4"
@@ -85,10 +91,11 @@
 				    android:layout_below="@+id/textView3"
 				    android:paddingTop="5dp"
 				    android:text="@string/text_wersja"
-				    android:textColor="@color/fff" />
-			
+				    android:textColor="@color/fff"
+                    android:textSize="18dp" />
+
 			</RelativeLayout>
-			
+
 			<RelativeLayout
 			    android:layout_width="match_parent"
 			    android:layout_height="match_parent"
@@ -107,7 +114,9 @@
 				    android:layout_centerHorizontal="true"
 				    android:text="@string/title_autorzy"
 				    android:textAppearance="?android:attr/textAppearanceMedium"
-				    android:textColor="@color/fff" />
+				    android:textColor="@color/fff"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
 
 				<TextView
 				    android:id="@+id/textView6"
@@ -117,12 +126,28 @@
 				    android:layout_below="@+id/textView5"
 				    android:paddingTop="5dp"
 				    android:text="@string/text_autorzy"
-				    android:textColor="@color/fff" />
-			
+				    android:textColor="@color/fff"
+                    android:textSize="18dp" />
+
 			</RelativeLayout>
-	        
+
 	    </LinearLayout>
-	    
+
 	</ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Powrót"
+        android:id="@+id/backButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textStyle="bold"
+        android:textColor="@color/fff"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>

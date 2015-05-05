@@ -8,7 +8,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/listView"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="80dp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:layout_above="@+id/backButton"/>
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -33,4 +35,19 @@
             android:textSize="28sp"
             android:textIsSelectable="false" />
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Powrót"
+        android:id="@+id/backButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textStyle="bold"
+        android:textColor="@color/fff"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp" />
 </RelativeLayout>

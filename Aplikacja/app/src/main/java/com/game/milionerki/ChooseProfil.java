@@ -149,7 +149,7 @@ public class ChooseProfil extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             if (!clicked) {
-                Toast.makeText(getApplicationContext(), "Trwa ładowanie gry...", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Trwa ładowanie gry...", Toast.LENGTH_SHORT).show();
                 clicked = true;
                 TextView _txt = (TextView) view.findViewById(R.id.textView1);
 

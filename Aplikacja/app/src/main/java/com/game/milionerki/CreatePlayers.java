@@ -124,7 +124,7 @@ public class CreatePlayers extends Activity {
                     sqlAdapter.close();
 
                     //powrót do głównego menu
-                    Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ChooseProfil.class);
                     startActivity(intent);
                     finish();
                 } else {

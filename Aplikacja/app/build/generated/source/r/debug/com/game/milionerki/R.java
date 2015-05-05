@@ -72,10 +72,10 @@ public final class R {
         public static final int zol1=0x7f02001f;
     }
     public static final class id {
-        public static final int aboutView=0x7f0a000a;
+        public static final int aboutView=0x7f0a000b;
         public static final int action_settings=0x7f0a004d;
         public static final int avatar=0x7f0a0049;
-        public static final int backButton=0x7f0a000d;
+        public static final int backButton=0x7f0a0001;
         public static final int box1=0x7f0a001b;
         public static final int btn_a=0x7f0a0022;
         public static final int btn_b=0x7f0a0024;
@@ -92,7 +92,7 @@ public final class R {
         public static final int createBtn=0x7f0a0015;
         public static final int drawer_layout=0x7f0a001f;
         public static final int imageView=0x7f0a0010;
-        public static final int imageView1=0x7f0a0001;
+        public static final int imageView1=0x7f0a0002;
         public static final int imageView2=0x7f0a002a;
         public static final int imageView3=0x7f0a0011;
         public static final int imageView4=0x7f0a0012;
@@ -104,7 +104,7 @@ public final class R {
         public static final int linearLayout=0x7f0a0021;
         public static final int listView=0x7f0a000e;
         public static final int nameText=0x7f0a0014;
-        public static final int newProfil=0x7f0a000c;
+        public static final int newProfil=0x7f0a000d;
         public static final int nextButton=0x7f0a000f;
         public static final int nickText=0x7f0a0019;
         public static final int noButton=0x7f0a001d;
@@ -119,7 +119,7 @@ public final class R {
         public static final int question_count=0x7f0a0029;
         public static final int question_txt=0x7f0a0027;
         public static final int rankingText=0x7f0a004a;
-        public static final int rankingView=0x7f0a0008;
+        public static final int rankingView=0x7f0a0009;
         public static final int relativeLayout=0x7f0a0048;
         public static final int relativeLayout2=0x7f0a0025;
         public static final int relativeLayout3=0x7f0a002b;
@@ -127,21 +127,21 @@ public final class R {
         public static final int relativeLayout5=0x7f0a0036;
         public static final int relativeLayout6=0x7f0a003a;
         public static final int scrollView1=0x7f0a0000;
-        public static final int startGame=0x7f0a0009;
+        public static final int startGame=0x7f0a000a;
         public static final int surnameText=0x7f0a0018;
         public static final int textView=0x7f0a004c;
-        public static final int textView1=0x7f0a0002;
+        public static final int textView1=0x7f0a0003;
         public static final int textView10=0x7f0a0016;
         public static final int textView11=0x7f0a0017;
         public static final int textView12=0x7f0a0013;
         public static final int textView13=0x7f0a0040;
         public static final int textView14=0x7f0a0031;
-        public static final int textView2=0x7f0a0003;
-        public static final int textView3=0x7f0a0004;
-        public static final int textView4=0x7f0a0005;
-        public static final int textView5=0x7f0a0006;
-        public static final int textView6=0x7f0a0007;
-        public static final int textView7=0x7f0a000b;
+        public static final int textView2=0x7f0a0004;
+        public static final int textView3=0x7f0a0005;
+        public static final int textView4=0x7f0a0006;
+        public static final int textView5=0x7f0a0007;
+        public static final int textView6=0x7f0a0008;
+        public static final int textView7=0x7f0a000c;
         public static final int textView8=0x7f0a0039;
         public static final int textView9=0x7f0a003d;
         public static final int textViewName=0x7f0a0047;

@@ -279,11 +279,32 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
      * Funkcja odpowiedzialna za wyświetlanie tekstu prowadzącego
      */
     private void textLeading(int val) {
+        final int chooseAnswer = val - 1;
+
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setView(randTextLeading());
+        dialogBuilder.setView(randTextLeading()).setPositiveButton("Potwierdź odpowiedź", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+                onOrOffButton(false);
+                if (!questionsData.checkAnswer(question, chooseAnswer)) {
+                    btn_a.setBackgroundColor(getResources().getColor(R.color.btn_bad));
+                    colorGoodAnswer();
+                    badAnswer();
+                } else {
+                    btn_a.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                    questionCount++;
+                    setQuestion();
+                }
+            }
+        }).setNeutralButton("Wybierz ponownie", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
         alert = dialogBuilder.create();
         alert.show();
 
+        /*
         count = 0;
         Runnable runnable = new Runnable() {
             public void run() {
@@ -311,7 +332,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             }
         };
         odpThread = new Thread(runnable);
-        odpThread.start();
+        odpThread.start();*/
 
     }
 
