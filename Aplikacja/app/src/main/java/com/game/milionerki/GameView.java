@@ -282,23 +282,37 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
         final int chooseAnswer = val - 1;
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setView(randTextLeading()).setPositiveButton("Potwierdź odpowiedź", new DialogInterface.OnClickListener() {
+        dialogBuilder.setView(randTextLeading()).setNegativeButton("Wybierz ponownie", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        }).setPositiveButton("Potwierdź odpowiedź", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
                 onOrOffButton(false);
                 if (!questionsData.checkAnswer(question, chooseAnswer)) {
-                    btn_a.setBackgroundColor(getResources().getColor(R.color.btn_bad));
+                    if (chooseAnswer == 0)
+                        btn_a.setBackgroundColor(getResources().getColor(R.color.btn_bad));
+                    else if (chooseAnswer == 1)
+                        btn_b.setBackgroundColor(getResources().getColor(R.color.btn_bad));
+                    else if (chooseAnswer == 2)
+                        btn_c.setBackgroundColor(getResources().getColor(R.color.btn_bad));
+                    else if (chooseAnswer == 3)
+                        btn_d.setBackgroundColor(getResources().getColor(R.color.btn_bad));
                     colorGoodAnswer();
                     badAnswer();
                 } else {
-                    btn_a.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                    if (chooseAnswer == 0)
+                        btn_a.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                    else if (chooseAnswer == 1)
+                        btn_b.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                    else if (chooseAnswer == 2)
+                        btn_c.setBackgroundColor(getResources().getColor(R.color.btn_active));
+                    else if (chooseAnswer == 3)
+                        btn_d.setBackgroundColor(getResources().getColor(R.color.btn_active));
                     questionCount++;
                     setQuestion();
                 }
-            }
-        }).setNeutralButton("Wybierz ponownie", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
             }
         });
         alert = dialogBuilder.create();
@@ -375,6 +389,21 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
 
         TextView _text_lead = (TextView) layout.findViewById(R.id.text_lead);
         _text_lead.setText(text_friend);
+
+        return layout;
+    }
+
+    /**
+     * Funkcja odpowiedzialna za wyświetlanie tekstu w alercie
+     *
+     * @return wygląd
+     */
+    private View alertText(String text) {
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.dialog_alert_text_leading, (ViewGroup) this.findViewById(R.id.layout_root));
+
+        TextView _text_alert = (TextView) layout.findViewById(R.id.text_lead);
+        _text_alert.setText(text);
 
         return layout;
     }
@@ -802,7 +831,7 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
                         }
 
                         try {
-                            Thread.sleep(300);
+                            Thread.sleep(400);
                             count++;
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
@@ -994,17 +1023,32 @@ public class GameView extends Activity implements ActionBar.OnNavigationListener
             save.saveReuslt(getApplicationContext(), nick, cash, timeGame, profil);
         }
 
+        String alertText = "";
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         if (typ.equalsIgnoreCase("win")) {
-            Toast.makeText(getApplicationContext(), "Gratulacje! Wygrałeś główną nagrodę.", Toast.LENGTH_LONG).show();;
+            alertText = "Gratulacje! Wygrałeś główną nagrodę. Przejdź do:";
         } else if(typ.equalsIgnoreCase("loss")) {
-            Toast.makeText(getApplicationContext(), "Przegrałeś! Źle odpowiedziałeś na to pytanie.", Toast.LENGTH_LONG).show();;
+            alertText = "Udzieliłeś błędnej odpowiedzi - gra zakończona. Niestety, nic nie wygrałeś. Przejdź do:";
         } else if(typ.equalsIgnoreCase("end")) {
-            Toast.makeText(getApplicationContext(), "Wynik zapisany.", Toast.LENGTH_LONG).show();;
+            alertText = "Zrezygnowałeś z dalszej gry - wynik został zapisany! Przejdź do:";
         }
 
-        Intent intent = new Intent(getApplicationContext(), RankingView.class);
-        startActivity(intent);
-        finish();
+        dialogBuilder.setView(alertText(alertText)).setPositiveButton("Ranking", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Intent intent = new Intent(getApplicationContext(), RankingView.class);
+                startActivity(intent);
+                finish();
+            }
+        }).setNegativeButton("Menu główne", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        alert = dialogBuilder.create();
+        alert.show();
+
     }
 
     /**

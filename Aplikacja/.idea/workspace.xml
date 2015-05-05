@@ -37,18 +37,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ff9dbc6-8f9b-4cde-ae1b-9d9093f5490f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screeny/about_view.png" afterPath="$PROJECT_DIR$/screeny/about_view.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screeny/ranking_view.png" afterPath="$PROJECT_DIR$/screeny/ranking_view.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screeny/text_leading.png" afterPath="$PROJECT_DIR$/screeny/text_leading.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/AboutView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/AboutView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/ChooseProfil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/ChooseProfil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/CreatePlayers.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/CreatePlayers.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/screeny/end_game.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/game/milionerki/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/game/milionerki/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/RankingView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/RankingView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_about_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_about_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/ranking_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/ranking_view.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Milionerki.iws" />
@@ -102,32 +92,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GameView.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3878" max-vertical-offset="18802">
-              <caret line="293" column="90" selection-start-line="293" selection-start-column="90" selection-end-line="293" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.67335767" vertical-offset="4085" max-vertical-offset="19448">
+              <caret line="311" column="29" selection-start-line="311" selection-start-column="29" selection-end-line="311" selection-end-column="29" />
               <folding>
                 <element signature="e#7290#7310#0" expanded="true" />
                 <element signature="e#7355#7376#0" expanded="true" />
                 <element signature="e#8552#8586#0" expanded="true" />
                 <element signature="e#9015#9049#0" expanded="true" />
                 <element signature="e#9503#9537#0" expanded="true" />
-                <element signature="e#10196#10836#0" expanded="true" />
-                <element signature="e#10825#10826#0" expanded="true" />
-                <element signature="e#10875#11037#0" expanded="true" />
-                <element signature="e#11026#11027#0" expanded="true" />
-                <element signature="e#14720#14748#0" expanded="true" />
-                <element signature="e#16437#16486#0" expanded="true" />
-                <element signature="e#16509#16563#0" expanded="true" />
-                <element signature="e#20682#20712#0" expanded="true" />
-                <element signature="e#29941#29980#0" expanded="true" />
-                <element signature="e#30098#30147#0" expanded="true" />
-                <element signature="e#32210#33125#0" expanded="true" />
-                <element signature="e#33110#33111#0" expanded="true" />
-                <element signature="e#42855#42907#0" expanded="true" />
-                <element signature="e#42982#43038#0" expanded="true" />
-                <element signature="e#43113#43167#0" expanded="true" />
+                <element signature="e#10398#11981#0" expanded="true" />
+                <element signature="e#11970#11971#0" expanded="true" />
+                <element signature="e#16192#16220#0" expanded="true" />
+                <element signature="e#17909#17958#0" expanded="true" />
+                <element signature="e#17981#18035#0" expanded="true" />
+                <element signature="e#22154#22184#0" expanded="true" />
+                <element signature="e#31413#31452#0" expanded="true" />
+                <element signature="e#31570#31619#0" expanded="true" />
+                <element signature="e#41754#42038#0" expanded="true" />
+                <element signature="e#42027#42028#0" expanded="true" />
+                <element signature="e#44993#45045#0" expanded="true" />
+                <element signature="e#45120#45176#0" expanded="true" />
+                <element signature="e#45251#45305#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,24 +127,22 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.222221" vertical-offset="1842" max-vertical-offset="2686">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1842" max-vertical-offset="2686">
               <caret line="150" column="42" selection-start-line="137" selection-start-column="4" selection-end-line="150" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ranking_view.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ranking_view.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ranking_view.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3096539" vertical-offset="0" max-vertical-offset="986">
+            <state vertical-scroll-proportion="-1.8518518" vertical-offset="120" max-vertical-offset="986">
               <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-              <folding>
-                <element signature="e#1122#1145#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -164,11 +150,9 @@
       <file leaf-file-name="RankingView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/RankingView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1751">
+            <state vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="2108">
               <caret line="50" column="11" selection-start-line="43" selection-start-column="8" selection-end-line="50" selection-end-column="11" />
-              <folding>
-                <element signature="e#677#704#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -176,7 +160,7 @@
       <file leaf-file-name="CreatePlayersAvatar.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/CreatePlayersAvatar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="817" max-vertical-offset="2516">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="2788">
               <caret line="78" column="86" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="86" />
               <folding />
             </state>
@@ -186,7 +170,7 @@
       <file leaf-file-name="CreatePlayers.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/CreatePlayers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="103" max-vertical-offset="2601">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1921" max-vertical-offset="2907">
               <caret line="113" column="62" selection-start-line="113" selection-start-column="62" selection-end-line="113" selection-end-column="62" />
               <folding />
             </state>
@@ -196,7 +180,7 @@
       <file leaf-file-name="ChooseProfil.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/ChooseProfil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1696" max-vertical-offset="2567">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2567" max-vertical-offset="2907">
               <caret line="151" column="99" selection-start-line="151" selection-start-column="99" selection-end-line="151" selection-end-column="99" />
               <folding />
             </state>
@@ -206,7 +190,7 @@
       <file leaf-file-name="AboutView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/AboutView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="1105">
+            <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1241">
               <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
               <folding />
             </state>
@@ -216,7 +200,7 @@
       <file leaf-file-name="StartActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/StartActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="103" max-vertical-offset="1479">
+            <state vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="1717">
               <caret line="47" column="11" selection-start-line="42" selection-start-column="8" selection-end-line="47" selection-end-column="11" />
               <folding />
             </state>
@@ -1437,8 +1421,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/AboutView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/ChooseProfil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/CreatePlayers.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/ranking_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java" />
       </list>
     </option>
   </component>
@@ -1474,8 +1458,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1769,6 +1751,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -2034,7 +2018,11 @@
       <created>1430765886716</created>
       <updated>1430765886716</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Dostosowano aplikację do wymagań klienta">
+      <created>1430819200386</created>
+      <updated>1430819200386</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2077,7 +2065,7 @@
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32814237" sideWeight="0.4792111" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17537314" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17537314" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.53933436" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2126,7 +2114,8 @@
     <MESSAGE value="* Dodanie kolorowania poprawnej/błędnej odpowiedzi po udzieleniu odpowiedzi na pytanie&#10;* Poprawienie wyglądu aktywności gry" />
     <MESSAGE value="Poprawienie wyglądu oraz zapisywanie stanu aplikacji przy zmianie orientacji" />
     <MESSAGE value="* Dodanie do bazy kolejnych pytań i tekstów.&#10;* Dodano buttony do alertów&#10;* Dodano ukrywanie tekstu prowadzącego po 2 sekudach" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Dodanie do bazy kolejnych pytań i tekstów.&#10;* Dodano buttony do alertów&#10;* Dodano ukrywanie tekstu prowadzącego po 2 sekudach" />
+    <MESSAGE value="Dostosowano aplikację do wymagań klienta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dostosowano aplikację do wymagań klienta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2480,7 +2469,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.222221" vertical-offset="1842" max-vertical-offset="2686">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1842" max-vertical-offset="2686">
           <caret line="150" column="42" selection-start-line="137" selection-start-column="4" selection-end-line="150" selection-end-column="42" />
           <folding />
         </state>
@@ -2502,42 +2491,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3878" max-vertical-offset="18802">
-          <caret line="293" column="90" selection-start-line="293" selection-start-column="90" selection-end-line="293" selection-end-column="90" />
-          <folding>
-            <element signature="e#7290#7310#0" expanded="true" />
-            <element signature="e#7355#7376#0" expanded="true" />
-            <element signature="e#8552#8586#0" expanded="true" />
-            <element signature="e#9015#9049#0" expanded="true" />
-            <element signature="e#9503#9537#0" expanded="true" />
-            <element signature="e#10196#10836#0" expanded="true" />
-            <element signature="e#10825#10826#0" expanded="true" />
-            <element signature="e#10875#11037#0" expanded="true" />
-            <element signature="e#11026#11027#0" expanded="true" />
-            <element signature="e#14720#14748#0" expanded="true" />
-            <element signature="e#16437#16486#0" expanded="true" />
-            <element signature="e#16509#16563#0" expanded="true" />
-            <element signature="e#20682#20712#0" expanded="true" />
-            <element signature="e#29941#29980#0" expanded="true" />
-            <element signature="e#30098#30147#0" expanded="true" />
-            <element signature="e#32210#33125#0" expanded="true" />
-            <element signature="e#33110#33111#0" expanded="true" />
-            <element signature="e#42855#42907#0" expanded="true" />
-            <element signature="e#42982#43038#0" expanded="true" />
-            <element signature="e#43113#43167#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/RankingView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1751">
           <caret line="50" column="11" selection-start-line="43" selection-start-column="8" selection-end-line="50" selection-end-column="11" />
-          <folding>
-            <element signature="e#677#704#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2570,10 +2528,35 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3096539" vertical-offset="0" max-vertical-offset="986">
+        <state vertical-scroll-proportion="-1.8518518" vertical-offset="120" max-vertical-offset="986">
           <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/milionerki/GameView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67335767" vertical-offset="4085" max-vertical-offset="19448">
+          <caret line="311" column="29" selection-start-line="311" selection-start-column="29" selection-end-line="311" selection-end-column="29" />
           <folding>
-            <element signature="e#1122#1145#0" expanded="true" />
+            <element signature="e#7290#7310#0" expanded="true" />
+            <element signature="e#7355#7376#0" expanded="true" />
+            <element signature="e#8552#8586#0" expanded="true" />
+            <element signature="e#9015#9049#0" expanded="true" />
+            <element signature="e#9503#9537#0" expanded="true" />
+            <element signature="e#10398#11981#0" expanded="true" />
+            <element signature="e#11970#11971#0" expanded="true" />
+            <element signature="e#16192#16220#0" expanded="true" />
+            <element signature="e#17909#17958#0" expanded="true" />
+            <element signature="e#17981#18035#0" expanded="true" />
+            <element signature="e#22154#22184#0" expanded="true" />
+            <element signature="e#31413#31452#0" expanded="true" />
+            <element signature="e#31570#31619#0" expanded="true" />
+            <element signature="e#41754#42038#0" expanded="true" />
+            <element signature="e#42027#42028#0" expanded="true" />
+            <element signature="e#44993#45045#0" expanded="true" />
+            <element signature="e#45120#45176#0" expanded="true" />
+            <element signature="e#45251#45305#0" expanded="true" />
           </folding>
         </state>
       </provider>
