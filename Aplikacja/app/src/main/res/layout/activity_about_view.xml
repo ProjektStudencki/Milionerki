@@ -57,7 +57,9 @@
 				    android:paddingTop="5dp"
 				    android:text="@string/text_system_rozgrywki"
 				    android:textColor="@color/fff"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:editable="false"
+                    android:singleLine="false" />
 
 			</RelativeLayout>
 

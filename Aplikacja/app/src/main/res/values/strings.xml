@@ -20,10 +20,7 @@
     <!-- O MNIE -->
     <string name="title_system_rozgrywki">System rozgrywki</string>
     <string name="text_system_rozgrywki">
-        Gra Milionerki opiera się na większości zasad popularnego teleturnieju "Milionerzy".\n
-		Założenia gry są bardzo proste. Aby zdobyć tytułową nagrodę miliona należy odpowiedzieć na 15 zadanych pytań przez prowadzącego. 
-		Istnieją dwa progi gwarantowane - pierwszy z nich po 5. pytaniu (1 000) oraz drugi z nich po 10. pytaniu (32 000). 
-		Do wykorzystania są trzy koła ratunkowe: pytanie do publiczności, telefon do wirtualnego przyjaciela oraz pół na pół.
+        Gra Milionerki opiera się na większości zasad popularnego teleturnieju "Milionerzy".\nZałożenia gry są bardzo proste. Aby zdobyć tytułową nagrodę miliona należy odpowiedzieć na 10 zadanych pytań przez prowadzącego. Do wykorzystania są trzy koła ratunkowe: pytanie do publiczności, telefon do wirtualnego przyjaciela oraz pół na pół.
     </string>
     <string name="title_wersja">Wersja</string>
     <string name="text_wersja">Milionerki ver. 1</string>
